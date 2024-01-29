@@ -15,13 +15,13 @@ const newTime = ()=>{
 
   return (
     <div className='flex px-4 '>
-      <div className='flex w-[70%] border-2 h-10 justify-between align-middle items-center max-md:flex-col max-md:gap-3 max-md:h-auto'>
-         <div className='items-center flex-1 align-middle'> 
+      <div className='flex w-[70%] border-2 h-10 justify-between align-middle items-center'>
+         <div className='items-center align-middle'> 
             <p className='text-lg'>Good {newTime()} User</p>
          </div>
- 
-         <div className='flex items-center gap-4 flex-1'  >
-            <input type='search' placeholder='search' className='w-[250px] max-md:w-40 h-10 pla rounded-lg outline-none border-slate-400 border-2 placeholder:pl-4 placeholder:py-8'/>
+
+         <div className='flex items-center gap-4'  >
+            <input type='search' placeholder='search' className='w-[250px] h-10 pla rounded-lg outline-none border-slate-400 border-2 placeholder:pl-4 placeholder:py-8'/>
 
             <div >
               <img src={notification} alt='notification-bell' width={20} height={20}/>
