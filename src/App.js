@@ -25,7 +25,7 @@ function App() {
  <div  className=''>
    <BrowserRouter>
       <Routes>
-         <Route path='/signup' element={<Signup/>}/>
+         <Route path='/' element={<Signup/>}/>
       </Routes>
       <SideNav toggle={open} nav={openNav} close={close}> 
          <Routes>
