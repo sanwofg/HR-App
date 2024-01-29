@@ -1,5 +1,6 @@
 import React from "react";
-import google from './google.jpg'
+import google from './Assets/google.jpg'
+import { Link } from "react-router-dom";
 
 export const Signup = () => {
   return (
@@ -78,9 +79,12 @@ export const Signup = () => {
             </div>
           </div>
           <div className="flex w-[440px] h-[55px] items-center justify-center px-[36px] py-0 relative bg-[#0c7c3f] rounded-[4px]">
-            <button className="relative w-[368px] h-[55px] mt-[-1.00px] [font-family:'Open_Sans-SemiBold',Helvetica] font-semibold text-white text-[16px] text-center tracking-[0] leading-[normal]">
-              Login
-            </button>
+
+            <Link to={'/dashboard'}>
+              <button className="relative w-[368px] h-[55px] mt-[-1.00px] [font-family:'Open_Sans-SemiBold',Helvetica] font-semibold text-white text-[16px] text-center tracking-[0] leading-[normal]">
+                Login
+              </button>
+            </Link>
           </div>
           <div className="flex w-[440px] h-[55px] items-center justify-center gap-[20px] px-[36px] py-[4px] relative rounded-[4px] border border-solid border-[#343a40]">
             {/* <div className="inline-flex items-center justify-center gap-[10px] relative flex-[0_0_auto]  bg-cover bg-[50%_50%]">
