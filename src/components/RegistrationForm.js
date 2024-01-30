@@ -432,7 +432,7 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-8 max-md:max-w-full">
         Preferred Course
       </div>
-      <div className="justify-center border flex mt-6 pl-6 pr-6 py-6 rounded-2xl border-solid border-green-700 items-end max-md:max-w-full max-md:px-5"
+      <div className="justify-center border flex mt-6 pl-6 pr-6 py-3.5 rounded-2xl border-solid border-green-700 items-end max-md:max-w-full max-md:px-5"
       onClick={() => setIsPreferredCourseDropdownOpen(!isPreferredCourseDropdownOpen)}>
          <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedPreferredCourse || "Select preferred course"}</div>
         <img
