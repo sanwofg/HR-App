@@ -496,14 +496,14 @@ function App(props) {
           className={`border ${isTermsChecked ? 'bg-green-700' : 'bg-white'}flex w-[30px] shrink-0 h-[30px] flex-col my-auto border-solid border-green-700`}
           onClick={() => setIsTermsChecked(!isTermsChecked)} 
           />
-        <div className="justify-center text-black text-lg font-light grow max-md:max-w-full">
+        <p className="justify-center text-black text-lg font-light grow max-md:max-w-full">
           I have read and agree to the terms and conditions.
-        </div>
+        </p>
       </div>
 
          {/* Submit Button */}
       <button  className="text-white text-center text-2xl justify-center items-center bg-green-700 self-center w-[300px] max-w-full px-16 py-5 rounded-2xl max-md:px-5 cursor-pointer">
-        Submit{" "}
+        Submit
       </button>
       </div>
     </div>
