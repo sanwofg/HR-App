@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./LoginPage.css";
+import { Link } from "react-router-dom";
+
 
 function LoginPage() {
   const formik = useFormik({
@@ -54,9 +56,11 @@ function LoginPage() {
           </a>
         </div>
         <div className="lgp-btn">
-          <button className="lgp-btn" type="submit">
-            Login
-          </button>
+          <Link to={'/dashboard'}>
+            <button className="lgp-btn" type="submit">
+              Login
+            </button>
+          </Link>
         </div>
         <div className="lgp-account">
           <p>Don't have an account yet?</p>
