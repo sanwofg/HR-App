@@ -1,0 +1,52 @@
+.gp-body {
+  /* border: 1px solid red; */
+  background-color: black;
+  height: 105vh;
+}
+.gp-logo {
+  margin-top: -2rem;
+}
+.gp-btn {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25rem;
+  height: 10rem;
+  margin-top: -2rem;
+  margin-left: 35%;
+}
+.gp-btn1 {
+  width: 20.5rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #0c7c3f;
+  cursor: pointer;
+}
+.gp-btn1:hover {
+  background-color: white;
+  border: none;
+  color: #0c7c3f;
+  transition: 0.5s;
+}
+.gp-btn2 {
+  width: 20.5rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  border: none;
+  border-radius: 5px;
+  color: #0c7c3f;
+  background-color: white;
+  cursor: pointer;
+}
+.gp-btn2:hover {
+  background-color: #0c7c3f;
+  border: none;
+  color: white;
+  transition: 0.5s;
+}
