@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../Images/bulls.png";
-import "./googlePage.css";
-import google from "../Images/google-symbol.png";
+import logo from "./images/bulls.png";
+import "./GooglePage.css";
+import google from "./images/google-symbol.png";
 import { Link } from "react-router-dom";
 
 function googlePage() {

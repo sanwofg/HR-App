@@ -11,7 +11,10 @@ import Courses from './pages/Courses'
 import Overview from './pages/Overview'
 import Settings from './pages/Settings';
 import Reports from './pages/Reports';
-
+import SignupPage from './EntryPoint/SignupPage'
+import LoginPage from './EntryPoint/LoginPage'
+import LandingPage from './EntryPoint/LandingPage'
+import GooglePage from './EntryPoint/GooglePage'
 function App() {
 
    const [openNav, setOpenNav]=useState(true)
@@ -25,7 +28,10 @@ function App() {
  <div  className=''>
    <BrowserRouter>
       <Routes>
-         <Route path='/' element={<Signup/>}/>
+         <Route path='/' element={<LandingPage/>}/>
+         <Route path='/signup' element={<SignupPage/>}/>
+         <Route path='/login' element={<LoginPage/>}/>
+         <Route path='/google-signup' element={<GooglePage/>}/>
       </Routes>
       <SideNav toggle={open} nav={openNav} close={close}> 
          <Routes>

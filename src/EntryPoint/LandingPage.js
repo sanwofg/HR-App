@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../Images/bulls.png";
-import "./landingPage.css";
+import logo from "./images/bulls.png";
+import "./LandingPage.css";
 import { Link } from "react-router-dom";
 
 function landingPage() {
@@ -16,7 +16,7 @@ function landingPage() {
         <Link to="/login">
           <button className="lp-btn1">Login</button>
         </Link>
-        <Link to="/google">
+        <Link to="/google-signup">
           <button className="lp-btn2">Signup</button>
         </Link>
       </div>
