@@ -15,6 +15,7 @@ import SignupPage from './EntryPoint/SignupPage'
 import LoginPage from './EntryPoint/LoginPage'
 import LandingPage from './EntryPoint/LandingPage'
 import GooglePage from './EntryPoint/GooglePage'
+import RegistrationForm from './components/RegistrationForm'
 function App() {
 
    const [openNav, setOpenNav]=useState(true)
@@ -32,6 +33,7 @@ function App() {
          <Route path='/signup' element={<SignupPage/>}/>
          <Route path='/login' element={<LoginPage/>}/>
          <Route path='/google-signup' element={<GooglePage/>}/>
+         <Route path='/registration' element={<RegistrationForm/>}/>
       </Routes>
       <SideNav toggle={open} nav={openNav} close={close}> 
          <Routes>

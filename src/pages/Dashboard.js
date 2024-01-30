@@ -1,5 +1,6 @@
 import React from 'react'
 import notification from './assets/musical-bell-outline.png'
+import { Link } from 'react-router-dom'
 const Dashboard = () => {
 
   let time = new Date().getHours()
@@ -16,8 +17,10 @@ const newTime = ()=>{
   return (
     <div className='flex px-4 '>
       <div className='flex w-[70%] border-2 h-10 justify-between align-middle items-center'>
-         <div className='items-center align-middle'> 
+         <div className='items-center align-middle'>
+          <Link to={'/registration'}>
             <p className='text-lg'>Good {newTime()} User</p>
+          </Link> 
          </div>
 
          <div className='flex items-center gap-4'  >
