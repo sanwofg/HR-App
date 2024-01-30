@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import bgimg from "./Assets/frame372.png"
+import samplelogo from "./Assets/frame375.png"
 
 function App(props) {
 
@@ -151,17 +152,20 @@ function App(props) {
     }
   };
 
-
+// justify between
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col md:flex-row w-full">
 
       {/* Background Image */}
-      <div className="w-1/2 flex-1 fixed">
-        <img src={bgimg} className="h-screen w-full object-cover"></img>
+      <div className="lg:w-1/2 fixed">
+        <img src={bgimg} className="h-screen w-full object-cover sm:bg-opacity-50" alt="Background-image"></img>
       </div>
 
       {/* Registration Form */}
-      <div className="w-1/2 ml-[50%] justify-center shadow-sm bg-white flex flex-col px-10 py-11 max-md:px-5">
+      <div className="w-full md:w-1/2 lg:w-1/2 mx-auto lg:ml-[50%] justify-center shadow-sm bg-white flex flex-col px-10 py-11 md:max-md:px-5 z-10">
+        <div className="flex justify-center ml-2">
+          <img src={samplelogo} className="lg:hidden h-10 w-48" alt="logo"></img>
+        </div>
         <div className="text-green-700 text-center text-3xl font-bold mt-2.5 mx-5 max-md:max-w-full max-md:mr-2.5">
           Let's get you registered.
         </div>
@@ -181,28 +185,22 @@ function App(props) {
       </div>
       
        {/* Date of Birth (DOB) & Gender Sections */}
-
       <div className="mt-6 max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0">
-            <div className="justify-center items-stretch flex grow flex-col self-stretch my-auto max-md:max-w-full max-md:mt-7">
+            <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Date of Birth</div>
-              <div className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+              <div className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
                 <div className="text-black text-lg grow">{}
                   <DatePicker selected={dob} onChange={(date) => handleDobSelect(date)}
                   placeholderText= "MM/DD/YYYY"/>
                 </div>
               </div> 
-              {/* {selectedDob && (<p className="text-green-700 mt-1">Selected Date: {selectedDob.toLocaleDateString()}</p>)} */}
             </div>
-          </div>
-
-
-          <div className="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0">
-            <div className="justify-center items-stretch flex grow flex-col max-md:max-w-full max-md:mt-6">
+       
+            <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Gender</div>
               <div 
-                className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+                className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
                 onClick={() => setIsGenderDropdownOpen(!isGenderDropdownOpen)}>
                 <div className="text-black text-lg grow">{selectedGender || "Specify"}</div>
                 <img
@@ -223,18 +221,16 @@ function App(props) {
               )}
               {/* {selectedGender && (<p className="text-green-700 mt-1">Selected Gender: {selectedGender}</p>)} */}
             </div>
-          </div>
         </div>
       </div>
 
       {/* Phone Number & NIN Section*/}
       <div className="mt-6 max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0">
-            <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-6">
+            <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Phone Number</div>
               <input 
-                className={`text-black text-lg justify-center border mt-6 pl-6 py-6 rounded-2xl border-solid ${
+                className={`text-black text-lg justify-center border mt-6 pl-6 py-3.5 rounded-2xl border-solid ${
                 phoneNumberError ? "border-red-500" : " border-green-700"} items-start max-md:max-w-full max-md:px-5`}
                 type="number"
                 value={phoneNumber}
@@ -245,12 +241,10 @@ function App(props) {
                 <p className="text-red-500 mt-1">{phoneNumberError}</p>
               )}
             </div>
-          </div>
-          <div className="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0">
-            <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-6">
-              <div className="text-black text-lg font-semibold max-md:max-w-full">NIN
-              </div>
-              <input className="justify-center pl-6 pr-16 py-[38px] items-start border flex shrink-0 h-[70px] flex-col mt-6 rounded-2xl border-solid border-green-700 max-md:max-w-full" 
+
+            <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-6 lg:w-1/2">
+              <div className="text-black text-lg font-semibold max-md:max-w-full">NIN</div>
+              <input className="justify-center pl-6 pr-16 py-3.5 items-start border flex shrink-0 h-[70px] flex-col mt-6 rounded-2xl border-solid border-green-700 max-md:max-w-full" 
                 type="number"
                 value={nin}
                 onChange={handleNINChange}
@@ -260,7 +254,6 @@ function App(props) {
                 <p className="text-red-500 mt-1">{ninError}</p>
               )}
             </div>
-          </div>
         </div>
       </div>
 
@@ -270,13 +263,13 @@ function App(props) {
       </div>
       <div className="items-stretch flex justify-between gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
         {/* Apartment Field */}
-        <input className="text-black text-lg whitespace-nowrap justify-center items-stretch border px-6 py-6 rounded-2xl border-solid border-green-700 max-md:px-5"
+        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Apartment"
           type="text">
         </input>
 
          {/* Street Name Field */}
-        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
+        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Street Name"
           type="text">
         </input>
@@ -286,12 +279,14 @@ function App(props) {
       <input 
         type="text"
         placeholder="City/Town"
-        className="text-black text-lg justify-center items-stretch border mt-6 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
+        className="text-black text-lg justify-center items-stretch border mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
       </input>
 
       
       <div className="items-stretch flex justify-between gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
-        <div className="items-stretch border flex justify-between gap-0 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5 w-6/12">
+
+        <div className="flex items-stretch border justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
+        {/* items-stretch border flex justify-between gap-0 mt-6 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5" */}
           <input 
             type="text"
             placeholder="LGA"
@@ -303,7 +298,9 @@ function App(props) {
             className="aspect-[2.22] object-contain object-center w-[22px] fill-black shrink-0 my-auto"
           />
         </div>
-        <div className="items-stretch border flex justify-between gap-0 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5 w-6/12">
+  
+        <div className=" items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
+        {/* items-stretch border flex justify-between gap-0 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5 w-6/12"> */}
           <input
               type="text"
               placeholder="State"
@@ -322,14 +319,14 @@ function App(props) {
       </div>
 
       <div className="justify-between items-stretch border flex gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
-      onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}>
-        <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedAvailableIdCard || "Select Available ID Card"}</div>
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/78983c65a313e2c3f761e3f4c9343affe4d4ffc117001d53e4b2bcb692b4555f?"
-          className="aspect-[2.22] object-contain object-center w-[22px] fill-black shrink-0 my-auto"
-          onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}
-        />
+        onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}>
+          <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedAvailableIdCard || "Select Available ID Card"}</div>
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/78983c65a313e2c3f761e3f4c9343affe4d4ffc117001d53e4b2bcb692b4555f?"
+            className="aspect-[2.22] object-contain object-center w-[22px] fill-black shrink-0 my-auto"
+            onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}
+          />
       </div>
       {isAvailableIdCardDropdownOpen && (
         <div className="flex flex-col mt-2 border border-solid border-green-700 rounded-md">
@@ -388,7 +385,7 @@ function App(props) {
       <div 
         className="justify-between items-stretch border flex gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
         onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}>
-        <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedHighestQualification || "Select highest educational qualification"}</div> 
+        <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedHighestQualification || "Select most recent qualification"}</div> 
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/4035bd7c4c31a69d81d69f1b668cbec517add3e495421449b948b0d2d0baf315?"
