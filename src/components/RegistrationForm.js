@@ -45,7 +45,7 @@ function App(props) {
   const genderOptions = ["Male", "Female"];
   const idCardOptions = ["Passport", "Driver's Licence", "National ID Card", "Permanent Voter's Card"];
   const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
-  const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Employed"];
+  const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Gainfully employed"];
   const preferredCourseOptions = ["Software Development/Testing", "Data Analysis", "Digital Marketing", "UI/UX Design", "Machine Learning/Automation"]
   const aboutusOptions = ["Social Media", "Internet Ad", "Friend/Colleague", "Other means"]
 
