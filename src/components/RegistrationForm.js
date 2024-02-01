@@ -174,7 +174,7 @@ function App(props) {
 
       <div className="text-black text-lg mt-11 max-md:max-w-full max-md:mt-10">
         Full Name (as it appears in your documents)
-          <input className={`w-full items-center border flex shrink-0 h-[44px] py-2 flex-col max-md:max-w-full mt-2 pl-5 rounded-2xl ${fullNameError ? 'border-red-500' : 'border-solid border-green-700'}`}
+          <input className={`w-full items-center border flex shrink-0 h-[44px] py-2 flex-col max-md:max-w-full mt-2 pl-5 rounded-xl ${fullNameError ? 'border-red-500' : 'border-solid border-green-700'}`}
             type="text" 
             value={fullName} 
             onChange={(e)=> setFullName(e.target.value)}
@@ -189,7 +189,7 @@ function App(props) {
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Date of Birth</div>
-              <div className="items-stretch border flex justify-between h-[44px] gap-0 mt-2 px-6 py-2 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+              <div className="items-stretch border flex justify-between h-[44px] gap-0 mt-2 px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
                 <div className="text-black text-lg grow">{}
                   <DatePicker selected={dob} onChange={(date) => handleDobSelect(date)}
                   placeholderText= "MM/DD/YYYY"/>
