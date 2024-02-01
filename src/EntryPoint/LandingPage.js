@@ -1,27 +1,28 @@
 import React from "react";
 import logo from "../Images/bulls.png";
-import "./landingPage.css";
-import { Link } from "react-router-dom";
 
-function landingPage() {
+function Landing() {
   return (
-    <div className="lp-body">
-      <div className="lp-logo">
+    <div className="h-screen flex flex-col items-center justify-around bg-[black] max-sm:w-screen">
+      <div className="mt-[-4rem]">
         <img src={logo} alt="" />
       </div>
-      <div className="lp-hello">
-        <h1>Hello from HR APP</h1>
+      <div className="">
+        <h1 className="text-[white] font-bold text-5xl mt-[-8rem]">
+          Hello from HR APP
+        </h1>
       </div>
-      <div className="lp-btn">
-        <Link to="/login">
-          <button className="lp-btn1">Login</button>
-        </Link>
-        <Link to="/google">
-          <button className="lp-btn2">Signup</button>
-        </Link>
+      <div className="flex flex-row justify-between w-[25rem] mt-[-6rem] max-sm:w-[22rem]">
+        <button className="bg-[#0c7c3f] text-[white] font-semibold rounded w-40 h-12 text-2xl cursor-pointer hover:bg-[white] hover:text-[#0c7c3f]">
+          Login
+        </button>
+
+        <button className="bg-[white] text-[#0c7c3f] font-semibold rounded w-40 h-12 text-2xl cursor-pointer hover:bg-[#0c7c3f] hover:text-[white]">
+          Signup
+        </button>
       </div>
     </div>
   );
 }
 
-export default landingPage;
+export default Landing;
