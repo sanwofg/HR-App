@@ -23,10 +23,11 @@ function App() {
       setOpenNav(!openNav)
    }
    const close =()=>{
-      setOpenNav(false)
+      setOpenNav(!openNav)
    }
+   
  return (
- <div  className=''>
+ <div  className='bg-white'>
    <BrowserRouter>
       <Routes>
          <Route path='/' element={<LandingPage/>}/>
@@ -35,9 +36,9 @@ function App() {
          <Route path='/google-signup' element={<GooglePage/>}/>
          <Route path='/registration' element={<RegistrationForm/>}/>
       </Routes>
-      <SideNav toggle={open} nav={openNav} close={close}> 
+      <SideNav toggle={open} openNav={openNav} close={close}> 
          <Routes>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+            <Route path='/dashboard' element={<Dashboard toggle={open} openNav={openNav} close={close}/>}/>
             <Route path='/assignment' element={<Assignment/>}/>
             <Route path='/courses' element={<Courses/>}/>
             <Route path='/reports' element={<Reports/>}/>
@@ -46,9 +47,6 @@ function App() {
          </Routes>
       </SideNav>
    </BrowserRouter>
- {/* <img src={logo} height={20} width={70} className="App-logo" alt="logo" /> */}
- {/* <Signup/> */}
-
  </div>
  );
 }
