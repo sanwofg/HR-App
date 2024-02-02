@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import bgimg from "./Assets/frame372.png"
 import samplelogo from "./Assets/frame375.png"
+import { Link } from "react-router-dom";
 
 function App(props) {
 
@@ -174,7 +175,7 @@ function App(props) {
 
       <div className="text-black text-lg mt-11 max-md:max-w-full max-md:mt-10">
         Full Name (as it appears in your documents)
-          <input className={`w-full items-center border flex shrink-0 h-[69px] flex-col max-md:max-w-full mt-6 pl-5 rounded-2xl ${fullNameError ? 'border-red-500' : 'border-solid border-green-700'}`}
+          <input className={`w-full items-center border flex shrink-0 h-[44px] py-2 flex-col max-md:max-w-full mt-2 pl-5 rounded-xl ${fullNameError ? 'border-red-500' : 'border-solid border-green-700'}`}
             type="text" 
             value={fullName} 
             onChange={(e)=> setFullName(e.target.value)}
@@ -189,7 +190,7 @@ function App(props) {
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Date of Birth</div>
-              <div className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+              <div className="items-stretch border flex justify-between h-[44px] gap-0 mt-2 px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5">
                 <div className="text-black text-lg grow">{}
                   <DatePicker selected={dob} onChange={(date) => handleDobSelect(date)}
                   placeholderText= "MM/DD/YYYY"/>
@@ -200,7 +201,7 @@ function App(props) {
             <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Gender</div>
               <div 
-                className="items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+                className="items-stretch border flex justify-between gap-0 mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
                 onClick={() => setIsGenderDropdownOpen(!isGenderDropdownOpen)}>
                 <div className="text-black text-lg grow">{selectedGender || "Specify"}</div>
                 <img
@@ -230,7 +231,7 @@ function App(props) {
             <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Phone Number</div>
               <input 
-                className={`text-black text-lg justify-center border mt-6 pl-6 py-3.5 rounded-2xl border-solid ${
+                className={`text-black text-lg justify-center border mt-2 pl-6 py-2 rounded-xl h-[44px] border-solid ${
                 phoneNumberError ? "border-red-500" : " border-green-700"} items-start max-md:max-w-full max-md:px-5`}
                 type="number"
                 value={phoneNumber}
@@ -244,7 +245,7 @@ function App(props) {
 
             <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-6 lg:w-1/2">
               <div className="text-black text-lg font-semibold max-md:max-w-full">NIN</div>
-              <input className="justify-center pl-6 pr-16 py-3.5 items-start border flex shrink-0 h-[70px] flex-col mt-6 rounded-2xl border-solid border-green-700 max-md:max-w-full" 
+              <input className="text-black text-lg justify-center border mt-2 pl-6 py-2 rounded-xl h-[44px] border-solid border-green-700"
                 type="number"
                 value={nin}
                 onChange={handleNINChange}
@@ -261,15 +262,15 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Contact Address
       </div>
-      <div className="items-stretch flex justify-between gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch h-[44px] flex justify-between gap-5 mt-2 max-md:max-w-full max-md:flex-wrap">
         {/* Apartment Field */}
-        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
+        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Apartment"
           type="text">
         </input>
 
          {/* Street Name Field */}
-        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
+        <input className="text-black text-lg justify-center items-stretch border grow px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Street Name"
           type="text">
         </input>
@@ -279,18 +280,17 @@ function App(props) {
       <input 
         type="text"
         placeholder="City/Town"
-        className="text-black text-lg justify-center items-stretch border mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
+        className="text-black text-lg justify-center h-[44px] items-stretch border mt-6 px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
       </input>
 
       
       <div className="items-stretch flex justify-between gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
 
-        <div className="flex items-stretch border justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
-        {/* items-stretch border flex justify-between gap-0 mt-6 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5" */}
+        <div className="flex items-stretch border justify-between gap-0 mt-2 px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
           <input 
             type="text"
             placeholder="LGA"
-            className="text-black text-lg grow">
+            className="text-black text-lg grow h-[44px]">
           </input>
           <img
             loading="lazy"
@@ -299,12 +299,11 @@ function App(props) {
           />
         </div>
   
-        <div className=" items-stretch border flex justify-between gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
-        {/* items-stretch border flex justify-between gap-0 px-6 py-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5 w-6/12"> */}
+        <div className=" items-stretch border flex justify-between gap-0 mt-2 px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
           <input
               type="text"
               placeholder="State"
-              className="text-black text-lg grow"></input>
+              className="text-black text-lg grow h-[44px]"></input>
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/64462fc9619791bf8b68c2def239fa154ee59f0442c07837798cfb86fe3dd443?"
@@ -314,11 +313,11 @@ function App(props) {
       </div>
 
       {/* SUPPORTING DOCUMENTS SECTION */}
-      <div className="text-black text-lg font-semibold mt-8 max-md:max-w-full">
+      <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Supporting Documents
       </div>
 
-      <div className="justify-between items-stretch border flex gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+      <div className="justify-between items-stretch border flex gap-0 mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
         onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}>
           <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedAvailableIdCard || "Select Available ID Card"}</div>
           <img
@@ -338,8 +337,8 @@ function App(props) {
         </div>
       )}
       
-      <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload ID Card</div>
-      <div className="items-stretch border flex flex-col px-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
+      <div className="text-black text-lg font-semibold mt-2 max-md:max-w-full">Upload ID Card</div>
+      <div className="items-stretch border flex flex-col px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
         <form>
           {/* Upload front of selected ID Card */}
           <div>
@@ -368,7 +367,7 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Upload Passport Photograph
       </div>
-      <div className="items-stretch border flex flex-col justify-center mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
+      <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
         <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
           <input className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
             type="file">
@@ -383,7 +382,7 @@ function App(props) {
       </div>
 
       <div 
-        className="justify-between items-stretch border flex gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+        className="justify-between items-stretch border flex gap-0 mt-2 px-6 py-2 h-[44px] rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
         onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}>
         <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedHighestQualification || "Select most recent qualification"}</div> 
           <img
@@ -408,7 +407,7 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Employment Status
       </div>
-      <div className="justify-between items-stretch border flex gap-0 mt-6 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+      <div className="justify-between items-stretch border flex gap-0 mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
       onClick={() => setIsEmploymentStatusDropdownOpen(!isEmploymentStatusDropdownOpen)}>
         <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedEmploymentStatus || "Select employment status"}</div>
         <img
@@ -429,10 +428,10 @@ function App(props) {
       )}
 
       {/* PREFERRED COURSE */}
-      <div className="text-black text-lg font-semibold mt-8 max-md:max-w-full">
+      <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Preferred Course
       </div>
-      <div className="justify-center border flex mt-6 pl-6 pr-6 py-3.5 rounded-2xl border-solid border-green-700 items-end max-md:max-w-full max-md:px-5"
+      <div className="justify-center border flex mt-2 pl-6 pr-6 py-2 h-[44px] rounded-xl border-solid border-green-700 items-end max-md:max-w-full max-md:px-5"
       onClick={() => setIsPreferredCourseDropdownOpen(!isPreferredCourseDropdownOpen)}>
          <div className="justify-center text-black text-lg grow max-md:max-w-full">{selectedPreferredCourse || "Select preferred course"}</div>
         <img
@@ -456,7 +455,7 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Why choose preferred course ?
       </div>
-      <input className="text-black text-lg items-stretch border mt-6 pt-3.5 pb-24 px-6 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
+      <input className="text-black text-lg items-stretch border mt-2 pt-3.5 pb-24 px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
               placeholder="Why have you chosen this course?"
               type="text">
         
@@ -464,7 +463,7 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-5 max-md:max-w-full">
       How did you hear about us?
       </div>
-      <div className="items-stretch border flex justify-between gap-0 px-6 py-3.5 rounded-2xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
+      <div className="items-stretch border flex justify-between gap-0 h-[44px] px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5"
       onClick={() => setIsHearAboutUsDropdownOpen(!isHearAboutUsDropdownOpen)}>
         <div className="text-black text-lg grow max-md:max-w-full">{selectedHearAboutUs || "Select a channel." }</div>
         <img
@@ -502,9 +501,11 @@ function App(props) {
       </div>
 
          {/* Submit Button */}
-      <button  className="text-white text-center text-2xl justify-center items-center bg-green-700 self-center w-[300px] max-w-full px-16 py-5 rounded-2xl max-md:px-5 cursor-pointer">
-        Submit
-      </button>
+      <Link to={'/unsuccessfullreg'}>
+        <button  className="text-white text-center text-xl text-uppercase justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
+          Submit
+        </button>
+      </Link>
       </div>
     </div>
     

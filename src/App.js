@@ -16,6 +16,8 @@ import LoginPage from './EntryPoint/LoginPage'
 import LandingPage from './EntryPoint/LandingPage'
 import GooglePage from './EntryPoint/GooglePage'
 import RegistrationForm from './components/RegistrationForm'
+import UnsuccessfulPopUp from './components/unsuccessulpopup';
+import SuccessPopUp from './components/successpopup';
 function App() {
 
    const [openNav, setOpenNav]=useState(true)
@@ -23,21 +25,25 @@ function App() {
       setOpenNav(!openNav)
    }
    const close =()=>{
-      setOpenNav(false)
+      setOpenNav(!openNav)
    }
+   
  return (
- <div  className=''>
+ <div  className='bg-white'>
    <BrowserRouter>
       <Routes>
+         <Route path='/successfulreg' element={<SuccessPopUp/>}/>
          <Route path='/' element={<LandingPage/>}/>
          <Route path='/signup' element={<SignupPage/>}/>
          <Route path='/login' element={<LoginPage/>}/>
          <Route path='/google-signup' element={<GooglePage/>}/>
          <Route path='/registration' element={<RegistrationForm/>}/>
+         <Route path='/unsuccessfullreg' element={<UnsuccessfulPopUp/>}/>
       </Routes>
-      <SideNav toggle={open} nav={openNav} close={close}> 
+
+      <SideNav toggle={open} openNav={openNav} close={close}> 
          <Routes>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+            <Route path='/dashboard' element={<Dashboard toggle={open} openNav={openNav} close={close}/>}/>
             <Route path='/assignment' element={<Assignment/>}/>
             <Route path='/courses' element={<Courses/>}/>
             <Route path='/reports' element={<Reports/>}/>
@@ -46,9 +52,6 @@ function App() {
          </Routes>
       </SideNav>
    </BrowserRouter>
- {/* <img src={logo} height={20} width={70} className="App-logo" alt="logo" /> */}
- {/* <Signup/> */}
-
  </div>
  );
 }
