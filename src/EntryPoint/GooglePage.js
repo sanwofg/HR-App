@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../Images/bulls.png";
-import google from "../Images/google-symbol.png";
+import logo from "./images/bulls.png";
+import google from "./images/google-symbol.png";
 
 function Google() {
   return (

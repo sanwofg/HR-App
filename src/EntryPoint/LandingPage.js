@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../Images/bulls.png";
+import logo from "./images/bulls.png";
+import { Link } from "react-router-dom";
 
 function Landing() {
   return (
@@ -13,9 +14,11 @@ function Landing() {
         </h1>
       </div>
       <div className="flex flex-row justify-between w-[25rem] mt-[-6rem] max-sm:w-[22rem]">
-        <button className="bg-[#0c7c3f] text-[white] font-semibold rounded w-40 h-12 text-2xl cursor-pointer hover:bg-[white] hover:text-[#0c7c3f]">
-          Login
-        </button>
+        <Link to={'/login'}>
+          <button className="bg-[#0c7c3f] text-[white] font-semibold rounded w-40 h-12 text-2xl cursor-pointer hover:bg-[white] hover:text-[#0c7c3f]">
+            Login
+          </button>
+        </Link>
 
         <button className="bg-[white] text-[#0c7c3f] font-semibold rounded w-40 h-12 text-2xl cursor-pointer hover:bg-[#0c7c3f] hover:text-[white]">
           Signup

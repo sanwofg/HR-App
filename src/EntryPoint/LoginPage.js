@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 function Login() {
   const formik = useFormik({
@@ -62,9 +63,11 @@ function Login() {
           </a>
         </div>
         <div>
+        <Link to={'/dashboard'}>
           <button className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] mt-6 text-xl font-semibold rounded cursor-pointer hover:bg-[#38454F] max-sm:w-60">
             Login
           </button>
+        </Link>
         </div>
         <div className="flex flex-row justify-center gap-2 mb-[3rem]">
           <p className="text-base text-[#565872]">Don't have an account yet?</p>
