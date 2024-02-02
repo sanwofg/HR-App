@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import bgimg from "./Assets/frame372.png"
 import samplelogo from "./Assets/frame375.png"
+import { Link } from "react-router-dom";
 
 function App(props) {
 
@@ -500,9 +501,11 @@ function App(props) {
       </div>
 
          {/* Submit Button */}
-      <button  className="text-white text-center text-xl text-uppercase justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
-        Click to Register
-      </button>
+      <Link to={'/unsuccessfullreg'}>
+        <button  className="text-white text-center text-xl text-uppercase justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
+          Submit
+        </button>
+      </Link>
       </div>
     </div>
     

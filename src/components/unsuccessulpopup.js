@@ -1,6 +1,6 @@
 import React from "react";
-import notokLogo from "../Assets/notOKLogo.png"; 
-import backgroundImg from "../Assets/backgroundImg.png";
+import notokLogo from "./Assets/notOKLogo.png"; 
+import backgroundImg from "./Assets/backgroundImg.png";
 
 const unsuccessfulPopUp = ({ onClose, onProceed }) => {
   return (
