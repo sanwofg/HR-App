@@ -7,6 +7,7 @@ import users from './assets/users.png'
 import code from './assets/web-coding.png'
 import javsscript from './assets/javascript.png'
 import python from './assets/python.png'
+import { Chart } from 'chart.js'
 import { Bar } from "react-chartjs-2";
 import GaugeChart from 'react-gauge-chart'
 
@@ -214,7 +215,7 @@ const newTime = ()=>{
               <p className='font-semibold'> Hours Spent</p>
             </div>
             <div className={` shadow pb-1 rounded-lg mt-4 `} >
-              <Bar  data={data} />
+              <Bar data={data} />
             </div>
           </div>
 
