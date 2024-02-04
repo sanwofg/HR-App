@@ -10,12 +10,12 @@ import { NavLink } from 'react-router-dom'
 import Menu from './Assets/menus.png'
 
 
-const SideNav = ({children}) => {
-    const [openNav, setOpenNav]=useState(true)
+const SideNav = ({children, openNav, close}) => {
+    // const [openNav, setOpenNav]=useState(true)
 
-    const close=()=>{
-        setOpenNav(!openNav)
-    }
+    // const close=()=>{
+    //     setOpenNav(!openNav)
+    // }
 
   return (
     <div className='w-full flex justify-between'>
@@ -59,7 +59,7 @@ const SideNav = ({children}) => {
         </div>
 
 
-        <main className={`text-black  h-scren flex-1 ${openNav? 'ml-[20%]' : 'ml-[5%]'}  ${openNav? 'max-md:ml-[41%]' : 'max-md:ml-[70px]'} py-4`}>{children}</main>
+        <main className={`text-black  h-scren flex-1 ${openNav? 'ml-[20%]' : 'ml-[5%]'}  ${openNav? 'max-md:ml-[41%]' : 'max-md:ml-[63px]'} py-4`}>{children}</main>
     </div>
   )
 }
