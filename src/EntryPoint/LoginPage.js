@@ -21,7 +21,7 @@ function Login() {
 
   return (
     <div className="h-screen flex items-center justify-center max-sm:pl-32">
-      <div className="w-[25rem] h-[32rem] bg-[white] shadow-lg flex flex-col justify-around items-center m-auto rounded-[10px] gap-7">
+      <div className="w-[27rem] h-[32rem] bg-[white] shadow-lg flex flex-col justify-around items-center m-auto rounded-[10px] gap-7">
         <h1 className="text-2xl text-primary font-semibold mt-[2rem]">
           HR APP
         </h1>
