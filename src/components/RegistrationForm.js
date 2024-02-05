@@ -874,22 +874,21 @@ function App(props) {
       <div className="items-stretch border flex flex-col px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
         <form>
           {/* Upload front of selected ID Card */}
-          <div>
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload front of selected ID Card</div>
-            <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+            <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
-                className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+                className="text-black text-center text-lg grow my-auto max-md:max-w-full"
                 type="file"
               />
             </div>
-          </div>
+
 
           {/* Upload back of selected ID Card */}
           <div className="mb-6">
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload back of selected ID Card</div>
-            <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+            <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
-                className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+                className="text-black text-center text-lg grow my-auto max-md:max-w-full"
                 type="file"
               />
             </div>
@@ -900,9 +899,9 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Upload Passport Photograph
       </div>
-      <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
-        <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
-          <input className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+      <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-8 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
+        <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+          <input className="text-black text-center text-lg grow my-auto max-md:max-w-full"
             type="file">
           </input>
          
