@@ -1,23 +1,33 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import logo from "../Images/bdmp.png";
+import logo from "./images/bdmp.png";
 import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import SignUp from "./SignUp";
+import SignUp from "./SignupPage";
+import RegistrationForm from "../components/RegistrationForm";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
   const [signup, setSignup] = useState(false);
+  const [reg, setReg] = useState(false);
 
   const popsign = () => {
     setPopup(false);
+    setReg(false);
     setSignup(true);
   };
 
   const change = () => {
     setSignup(false);
+    setReg(false);
     setPopup(true);
+  };
+
+  const openReg = () => {
+    setPopup(false);
+    setSignup(false);
+    setReg(true);
   };
 
   const pop = () => {
@@ -93,9 +103,9 @@ function Landing() {
               </div>
             ) : null}
           </form>
-          <div className="flex flex-row justify-between w-[20rem] mt-[-4rem] font-sans max-sm:w-[15rem] max-sm:text-sm">
+          <div className="flex flex-row justify-between w-[20rem] mt-[-4rem] text-sm font-sans max-sm:w-[15rem] max-sm:text-sm">
             <input type="checkbox" />
-            <p className="text-[#565872] mr-[6.5rem]">Remember me</p>
+            <p className="text-[#565872] mr-[6.1rem]">Remember me</p>
             <a href="" className="text-[#0c7c3f] font-bold">
               Forgot password?
             </a>
@@ -104,7 +114,7 @@ function Landing() {
             <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] mt-6 text-[14px] font-medium rounded font-serif cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60">
               Login
             </button>
-            <p className="font-sans text-xl text-[#565872]">or</p>
+            <p className="font-sans text-xl text-[#565872] text-center">or</p>
             <GoogleLogin
               width={"320px"}
               onSuccess={(credentialResponse) => {
@@ -130,6 +140,7 @@ function Landing() {
         </div>
       )}
       {signup && <SignUp change={change} />}
+      {reg && <RegistrationForm />}
     </div>
   );
 }
