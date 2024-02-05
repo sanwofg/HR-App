@@ -1,6 +1,6 @@
 import React from "react";
-import okLogo from "../Assets/okLogo.png"; 
-import backgroundImg from "../Assets/backgroundImg.png";
+import okLogo from "./Assets/okLogo.png"; 
+import backgroundImg from "./Assets/backgroundImg.png";
 
 const successPopUp = ({ onClose, onProceed }) => {
   return (
