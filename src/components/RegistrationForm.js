@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import bgimg from "./Assets/frame372.png"
+import bgimg from "./Assets/frame372.jpg"
 import samplelogo from "./Assets/frame375.png"
 import { Link } from "react-router-dom";
 
@@ -153,7 +153,7 @@ function App(props) {
     }
   };
 
-// justify between
+
   return (
     <div className="flex flex-col md:flex-row w-full">
 
@@ -343,7 +343,7 @@ function App(props) {
           {/* Upload front of selected ID Card */}
           <div>
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload front of selected ID Card</div>
-            <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+            <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
                 className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
                 type="file"
@@ -354,7 +354,7 @@ function App(props) {
           {/* Upload back of selected ID Card */}
           <div className="mb-6">
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload back of selected ID Card</div>
-            <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+            <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
                 className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
                 type="file"
@@ -367,8 +367,8 @@ function App(props) {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Upload Passport Photograph
       </div>
-      <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-2 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
-        <div className="items-stretch border flex justify-between gap-2.5 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-8 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
+        <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
           <input className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
             type="file">
           </input>
