@@ -111,10 +111,10 @@ function Landing() {
             </a>
           </div>
           <div>
-            <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] mt-6 text-[14px] font-medium rounded font-serif cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60">
+            <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] mt-6 text-[16px] font-medium rounded font-serif cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60">
               Login
             </button>
-            <p className="font-sans text-xl text-[#565872] text-center">or</p>
+            <p className="font-sans text-sm text-[#565872] text-center">or</p>
             <GoogleLogin
               width={"320px"}
               onSuccess={(credentialResponse) => {
