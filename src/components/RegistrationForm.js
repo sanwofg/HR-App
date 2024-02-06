@@ -515,7 +515,7 @@ function RegistrationForm () {
 
          {/* Submit Button */}
      <div className="flex justify-center">
-     <Link to={'/unsuccessfulreg'}>
+     <Link to={'/successfulreg'}>
         <button  className="text-white text-center text-xl justify-center items-center bg-[green-700] self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
           Submit
         </button>
