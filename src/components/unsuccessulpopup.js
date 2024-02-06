@@ -22,12 +22,14 @@ const unsuccessfulPopUp = ({ onClose, onProceed }) => {
         </p>
 
         {/* Tertiary Button */}
-        <button
-          className="bg-green-700 text-white py-2 px-4 text-2xl rounded-full w-full mb-4 hover:bg-green-600"
-          onClick={onProceed}
-        >
-          Return to Dashboard
-        </button>
+       <Link to={"/"} >
+          <button
+              className="bg-green-700 text-white py-2 px-4 text-2xl rounded-full w-full mb-4 hover:bg-green-600"
+              onClick={onProceed}
+            >
+              Exit
+            </button>
+       </Link>
       </div>
     </div>
   );

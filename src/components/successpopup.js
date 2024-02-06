@@ -22,12 +22,14 @@ const successPopUp = ({ onClose, onProceed }) => {
         </p>
 
         {/* Tertiary Button */}
-        <button
-          className="bg-green-700 text-white py-2 px-4 tect-2xl rounded-full w-full mb-4 hover:bg-green-600"
-          onClick={onProceed}
-        >
-          Click to Continue
-        </button>
+        <Link to= "/dashboard">
+          <button
+            className="bg-green-700 text-white py-2 px-4 tect-2xl rounded-full w-full mb-4 hover:bg-green-600"
+            onClick={onProceed}
+          >
+            Click to Continue
+          </button>
+        </Link>
       </div>
     </div>
   );

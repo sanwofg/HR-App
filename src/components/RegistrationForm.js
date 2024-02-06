@@ -468,7 +468,7 @@ function RegistrationForm () {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Why choose preferred course ?
       </div>
-      <input className="text-black text-lg items-stretch border mt-2 pt-3.5 pb-24 px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
+      <input className="text-black text-lg items-stretch border mt-2 pt-3.5 pb-24 px-6 rounded-xl w-full border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
               placeholder="Why have you chosen this course?"
               type="text">
         
@@ -515,8 +515,8 @@ function RegistrationForm () {
 
          {/* Submit Button */}
      <div className="flex justify-center">
-     <Link to={'/unsuccessfullreg'}>
-        <button  className="text-white text-center text-xl justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
+     <Link to={'/unsuccessfulreg'}>
+        <button  className="text-white text-center text-xl justify-center items-center bg-[green-700] self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
           Submit
         </button>
       </Link>

@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { GoogleLogin } from "@react-oauth/google";
+import { Link } from "react-router-dom";
 
 function SignUp({ change }) {
   const formik = useFormik({
@@ -80,12 +81,15 @@ function SignUp({ change }) {
         </form>
       </div>
       <div className="max-sm:ml-20">
-        <button
-          type="submit"
-          className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-semibold rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60"
-        >
-          Create account
-        </button>
+        <Link to={"/registration"}>
+          <button
+            type="submit"
+            className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-semibold rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60"
+          >
+            Create account
+          </button>
+        </Link>
+       
         <p className="font-sans text-xl text-[#565872] text-center max-sm:mr-16">
           or
         </p>
