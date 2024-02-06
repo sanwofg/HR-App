@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import bgimg from "./Assets/frame372.jpg"
-import samplelogo from "./Assets/frame375.png"
 import { Link } from "react-router-dom";
 
-function App(props) {
+function RegistrationForm () {
 
   // Adding state variables to fields
   const [fullName, setFullName] = useState("");
@@ -153,20 +151,35 @@ function App(props) {
     }
   };
 
+  // const formik = useFormik({
+  //   initialValues: {
+  //     fullName: "", 
+  //     dob: "",
+  //     gender: "",
+  //     phoneNumber: "",
+  //     nin: "",
+  //     availableidcard: "",
+  //     highestqualification: "",
+  //     employmentstatus: "",
+  //     preferredcourse: "",
+  //     hearaboutus: "",
+  //     isTermsChecked: ""
+
+  //   }
+  // })
+
+
 
   return (
-    <div className="flex flex-col md:flex-row w-full">
-
-      {/* Background Image */}
+    <div className="flex justify-center items-center md:flex-row">
+{/* 
+      Background Image
       <div className="lg:w-1/2 fixed">
         <img src={bgimg} className="h-screen w-full object-cover sm:bg-opacity-50" alt="Background-image"></img>
-      </div>
+      </div> */}
 
       {/* Registration Form */}
-      <div className="w-full md:w-1/2 lg:w-1/2 mx-auto lg:ml-[50%] justify-center shadow-sm bg-white flex flex-col px-10 py-11 md:max-md:px-5 z-10">
-        <div className="flex justify-center ml-2">
-          <img src={samplelogo} className="lg:hidden h-10 w-48" alt="logo"></img>
-        </div>
+      <div className="mx-auto justify-center shadow-sm bg-white flex flex-col px-10 py-11 md:max-md:px-5 z-10">
         <div className="text-green-700 text-center text-3xl font-bold mt-2.5 mx-5 max-md:max-w-full max-md:mr-2.5">
           Let's get you registered.
         </div>
@@ -341,22 +354,21 @@ function App(props) {
       <div className="items-stretch border flex flex-col px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
         <form>
           {/* Upload front of selected ID Card */}
-          <div>
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload front of selected ID Card</div>
             <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
-                className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+                className="text-black text-center text-lg grow my-auto max-md:max-w-full"
                 type="file"
               />
             </div>
-          </div>
+
 
           {/* Upload back of selected ID Card */}
           <div className="mb-6">
             <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">Upload back of selected ID Card</div>
             <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
               <input
-                className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+                className="text-black text-center text-lg grow my-auto max-md:max-w-full"
                 type="file"
               />
             </div>
@@ -369,7 +381,7 @@ function App(props) {
       </div>
       <div className="items-stretch border flex flex-col justify-center mt-2 px-6 py-8 rounded-xl h-[44px] border-solid border-green-700 max-md:max-w-full max-md:px-5">
         <div className="items-stretch border flex justify-between gap-2.5 pl-1 py-1 rounded-l border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
-          <input className="text-black text-center text-lg font-bold grow my-auto max-md:max-w-full"
+          <input className="text-black text-center text-lg grow my-auto max-md:max-w-full"
             type="file">
           </input>
          
@@ -495,21 +507,23 @@ function App(props) {
           className={`border ${isTermsChecked ? 'bg-green-700' : 'bg-white'}flex w-[30px] shrink-0 h-[30px] flex-col my-auto border-solid border-green-700`}
           onClick={() => setIsTermsChecked(!isTermsChecked)} 
           />
-        <p className="justify-center text-black text-lg font-light grow max-md:max-w-full">
+        <p className="flex justify-center py-2 text-black text-lg font-light grow max-md:max-w-full">
           I have read and agree to the terms and conditions.
         </p>
       </div>
 
          {/* Submit Button */}
-      <Link to={'/unsuccessfullreg'}>
-        <button  className="text-white text-center text-xl text-uppercase justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
+     <div className="flex justify-center">
+     <Link to={'/unsuccessfullreg'}>
+        <button  className="text-white text-center text-xl justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
           Submit
         </button>
       </Link>
+     </div>
       </div>
     </div>
     
   );
 }
 
-export default App;
+export default RegistrationForm;
