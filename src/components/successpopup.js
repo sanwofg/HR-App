@@ -1,6 +1,7 @@
 import React from "react";
 import okLogo from "./Assets/okLogo.png"; 
 import backgroundImg from "./Assets/backgroundImg.png";
+import { Link } from "react-router-dom";
 
 const successPopUp = ({ onClose, onProceed }) => {
   return (

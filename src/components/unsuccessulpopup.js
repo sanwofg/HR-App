@@ -1,6 +1,7 @@
 import React from "react";
 import notokLogo from "./Assets/notOKLogo.png"; 
 import backgroundImg from "./Assets/backgroundImg.png";
+import { Link } from "react-router-dom";
 
 const unsuccessfulPopUp = ({ onClose, onProceed }) => {
   return (
