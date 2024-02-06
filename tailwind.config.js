@@ -3,10 +3,13 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
-  },
-  fontFamily: {
-    sans: ["Akaya Telivigala"],
-    asset: ["Asset"],
+    colors: {
+      primary: "#0c7c3f",
+    },
+    fontFamily: {
+      sans: ["Akaya Telivigala"],
+      asset: ["Asset"],
+    },
   },
   plugins: [],
 };
