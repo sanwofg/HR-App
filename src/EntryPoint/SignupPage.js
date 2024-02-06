@@ -30,7 +30,7 @@ function SignUp({ change }) {
   });
 
   return (
-    <div className="w-[25rem] h-[35rem] bg-[white] shadow-lg flex flex-col absolute justify-around items-center m-auto rounded-[10px] py-5">
+    <div className="w-[25rem] h-[35rem] bg-[white] shadow-lg flex flex-col absolute justify-around items-center m-auto rounded-[10px] py-5 max-sm:w-[20rem]">
       <h1 className="text-2xl text-primary font-semibold font-asset">
         NAIJA 01
       </h1>
