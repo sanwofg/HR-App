@@ -27,34 +27,6 @@ function App() {
   };
 
   return (
-    //  <div  className='bg-white'>
-    //    <BrowserRouter>
-
-    //       <Routes>
-    //          <Route path='/successfulreg' element={<SuccessPopUp/>}/>
-    //          <Route path='/' element={<LandingPage/>}/>
-    //          <Route path='/signup' element={<SignupPage/>}/>
-    //          <Route path='/login' element={<LoginPage/>}/>
-    //          <Route path='/google-signup' element={<GooglePage/>}/>
-    //          <Route path='/registration' element={<RegistrationForm/>}/>
-    //          <Route path='/unsuccessfullreg' element={<UnsuccessfulPopUp/>}/>
-    //       </Routes>
-    //    </BrowserRouter>
-    //    <div>
-    //       <BrowserRouter>
-    //          <SideNav toggle={open} openNav={openNav} close={close}>
-    //             <Routes>
-    //                <Route path='/dashboard' element={<Dashboard toggle={open} openNav={openNav} close={close}/>}/>
-    //                <Route path='/assignment' element={<Assignment/>}/>
-    //                <Route path='/courses' element={<Courses/>}/>
-    //                <Route path='/reports' element={<Reports/>}/>
-    //                <Route path='/overview' element={<Overview/>}/>
-    //                <Route path='/settings' element={<Settings/>}/>
-    //             </Routes>
-    //          </SideNav>
-    //       </BrowserRouter>
-    //    </div>
-    //  </div>
     <div className="bg-white">
       <BrowserRouter>
         <Routes>
@@ -65,23 +37,27 @@ function App() {
           <Route path="/google-signup" element={<GooglePage />} />
           <Route path="/registration" element={<RegistrationForm />} />
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
-        </Routes>
 
-        <SideNav toggle={open} openNav={openNav} close={close}>
-          <Routes>
+          {openNav && (
             <Route
-              path="/dashboard"
+              path="/SideNav"
               element={
-                <Dashboard toggle={open} openNav={openNav} close={close} />
+                <SideNav toggle={open} openNav={openNav} close={close} />
               }
             />
-            <Route path="assignment" element={<Assignment />} />
-            <Route path="courses" element={<Courses />} />
-            <Route path="reports" element={<Reports />} />
-            <Route path="overview" element={<Overview />} />
-            <Route path="settings" element={<Settings />} />
-          </Routes>
-        </SideNav>
+          )}
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard toggle={open} openNav={openNav} close={close} />
+            }
+          />
+          <Route path="assignment" element={<Assignment />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="overview" element={<Overview />} />
+          <Route path="settings" element={<Settings />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
