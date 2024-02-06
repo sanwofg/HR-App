@@ -149,7 +149,7 @@ function Landing() {
           </div>
         </div>
       )}
-      {signup && <SignUp change={change} />}
+      {signup && <SignUp change={openReg} />}
       {reg && <RegistrationForm />}
     </div>
   );
