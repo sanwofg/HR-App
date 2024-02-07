@@ -15,8 +15,8 @@ import LoginPage from "./EntryPoint/LoginPage";
 import LandingPage from "./EntryPoint/LandingPage";
 import GooglePage from "./EntryPoint/GooglePage";
 import RegistrationForm from "./components/RegistrationForm";
-import UnsuccessfulPopUp from "./components/unsuccessulpopup";
-import SuccessPopUp from "./components/successpopup";
+import UnsuccessfulPopUp from "./components/UnsuccessfulPopup";
+import SuccessPopUp from "./components/SuccessPopUp";
 function App() {
   const [openNav, setOpenNav] = useState(true);
   const open = () => {

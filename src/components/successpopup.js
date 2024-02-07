@@ -3,7 +3,7 @@ import okLogo from "./Assets/okLogo.png";
 import backgroundImg from "./Assets/backgroundImg.png";
 import { Link } from "react-router-dom";
 
-const successPopUp = ({ onClose, onProceed }) => {
+const SuccessPopUp = ({ onClose, onProceed }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center min-h-screen p-4 justify-center bg-opacity-75 bg-cover" style={{ backgroundImage: `url(${backgroundImg})` }}>
       <div className="bg-gray-700 p-8 rounded-lg w-full md:w-96">
@@ -36,6 +36,6 @@ const successPopUp = ({ onClose, onProceed }) => {
   );
 };
 
-export default successPopUp;
+export default SuccessPopUp;
 
 

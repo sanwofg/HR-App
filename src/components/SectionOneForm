@@ -1,0 +1,256 @@
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+function SectionOneForm({ onNext }) {
+  // State variables for fields
+  const [fullName, setFullName] = useState("");
+  const [dob, setDob] = useState(null);
+  const [gender, setGender] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [nin, setNIN] = useState("");
+  const [selectedLga, setSelectedLga] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+ 
+  // State variables for field errors
+  const [fullNameError, setFullNameError] = useState("");
+  const [dobError, setDobError] = useState("");
+  const [genderError, setGenderError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [ninError, setNINError] = useState("");
+
+  // Dropdown Variables
+  const [isGenderDropdownOpen, setIsGenderDropdownOpen] = useState(false);
+  const [isLgaDropdownOpen, setIsLgaDropdownOpen] = useState(false);
+  const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
+
+ // Dropdown options
+ const genderOptions = ["Male", "Female"];
+ const idCardOptions = ["Passport", "Driver's Licence", "National ID Card", "Permanent Voter's Card"];
+ const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
+ const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Gainfully employed"];
+ const preferredCourseOptions = ["Software Development/Testing", "Data Analysis", "Digital Marketing", "UI/UX Design", "Machine Learning/Automation"]
+ const aboutusOptions = ["Social Media", "Internet Ad", "Friend/Colleague", "Other means"]
+
+ const handleBlur = (field, value) => {
+   if (!value.trim()) {
+     switch (field) {
+       case "fullName":
+         setFullNameError("*This is a required field.");
+         break;
+       // case "dob":
+       //   setDobError("*This is a required field.");
+       //   break;
+       // case "gender":
+       //   setGenderError("*This is a required field.");
+       //   break;
+       default:
+         break;
+       }
+   }
+   else {
+     switch (field) {
+       case "fullName":
+         setFullNameError("");
+         break;
+       case "dob":
+         setDobError("");
+         break;
+       case "gender":
+         setGenderError("");
+         break;
+       default:
+         break;
+       }
+
+   }
+ }
+
+ const handleGenderSelect = (gender) => {
+   setSelectedGender(gender);
+   setIsGenderDropdownOpen(false);
+ };
+
+ const handleLgaSelect = (lga) => {
+   setSelectedLga(lga);
+   setIsLgaDropdownOpen(false);
+ };
+
+ const handleStateSelect = (state) => {
+   setSelectedState(state);
+   setIsStateDropdownOpen(false);
+ };
+
+ const handleAvailableCardSelect = (availableidcard) => {
+   setSelectedAvailableIdCard(availableidcard);
+   setIsAvailableIdCardDropdownOpen(false);
+ };
+
+ const handleHighestQualificationSelect = (highestqualification) => {
+   setSelectedHighestQualification(highestqualification);
+   setIsHighestQualificationDropdownOpen(false);
+ };
+
+ const handleEmploymentStatusSelect = (employmentstatus) => {
+   setSelectedEmploymentStatus(employmentstatus);
+   setIsEmploymentStatusDropdownOpen(false);
+ };
+
+ const handlePreferredCourseSelect = (preferredcourse) => {
+   setSelectedPreferredCourse(preferredcourse);
+   setIsPreferredCourseDropdownOpen(false);
+ };
+
+ const handleHearAboutUsSelect = (hearaboutus) => {
+   setSelectedHearAboutUs(hearaboutus);
+   setIsHearAboutUsDropdownOpen(false);
+ };
+
+ const handleDobSelect = (value) => {
+   setSelectedDob(value);
+   setDob(value);
+ };
+
+ const handlePhoneNumberChange = (e) => {
+   const input = e.target.value;
+   if (/^\d*$/.test(input) && input.length <= 11) {
+     setPhoneNumber(input);
+     setPhoneNumberError("");
+   }
+   else 
+   {
+     setPhoneNumberError("11 digits are required.");
+   }
+ };
+
+ const handleNINChange = (e) => {
+   const input = e.target.value;
+   if (/^\d*$/.test(input) && input.length <= 11) {
+     setNIN(input);
+     setNINError("");
+   }
+   else
+   {
+     setNINError("11 digits are required.");
+   }
+ };
+
+  
+  
+  // Handle form submission for this section
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation logic for full name
+    if (!fullName.trim()) {
+      setFullNameError("*This is a required field.");
+      return;
+    } else {
+      setFullNameError("");
+    }
+
+    // Validation logic for date of birth
+    if (!dob) {
+      setDobError("*This is a required field.");
+      return;
+    } else {
+      setDobError("");
+    }
+
+    // Validation logic for gender
+    if (!gender) {
+      setGenderError("*This is a required field.");
+      return;
+    } else {
+      setGenderError("");
+    }
+
+    // Validation logic for phone number
+    if (!phoneNumber.trim() || phoneNumber.length !== 11 || isNaN(phoneNumber)) {
+      setPhoneNumberError("Please enter a valid 11-digit phone number.");
+      return;
+    } else {
+      setPhoneNumberError("");
+    }
+
+    // Validation logic for NIN
+    if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
+      setNINError("Please enter a valid 11-digit NIN.");
+      return;
+    } else {
+      setNINError("");
+    }
+
+    // If all validations pass, proceed to the next section
+    onNext();
+  };
+
+  return (
+    <div className="max-w-md mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Personal Information</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="fullName" className="block font-medium">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            className={`form-input ${fullNameError ? 'border-red-500' : ''}`}
+          />
+          {fullNameError && <p className="text-red-500 text-sm mt-1">{fullNameError}</p>}
+        </div>
+        <div>
+          <label htmlFor="dob" className="block font-medium">Date of Birth</label>
+          <DatePicker
+            id="dob"
+            selected={dob}
+            onChange={date => setDob(date)}
+            className={`form-input ${dobError ? 'border-red-500' : ''}`}
+            placeholderText="Select Date"
+          />
+          {dobError && <p className="text-red-500 text-sm mt-1">{dobError}</p>}
+        </div>
+        <div>
+          <label htmlFor="gender" className="block font-medium">Gender</label>
+          <select
+            id="gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            className={`form-select ${genderError ? 'border-red-500' : ''}`}
+          >
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          {genderError && <p className="text-red-500 text-sm mt-1">{genderError}</p>}
+        </div>
+        <div>
+          <label htmlFor="phoneNumber" className="block font-medium">Phone Number</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            className={`form-input ${phoneNumberError ? 'border-red-500' : ''}`}
+          />
+          {phoneNumberError && <p className="text-red-500 text-sm mt-1">{phoneNumberError}</p>}
+        </div>
+        <div>
+          <label htmlFor="nin" className="block font-medium">National Identification Number (NIN)</label>
+          <input
+            type="text"
+            id="nin"
+            value={nin}
+            onChange={(e) => setNIN(e.target.value)}
+            className={`form-input ${ninError ? 'border-red-500' : ''}`}
+          />
+          {ninError && <p className="text-red-500 text-sm mt-1">{ninError}</p>}
+        </div>
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next</button>
+      </form>
+    </div>
+  );
+}
+
+export default SectionOneForm;

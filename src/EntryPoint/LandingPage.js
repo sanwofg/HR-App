@@ -6,29 +6,42 @@ import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import SignUp from "./SignupPage";
 import RegistrationForm from "../components/RegistrationForm";
+// import SuccessPopUp from "../components/SuccessPopup";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
   const [signup, setSignup] = useState(false);
   const [reg, setReg] = useState(false);
+  const [success, setSuccess] = useState(false);
+
 
   const popsign = () => {
     setPopup(false);
     setReg(false);
+    setSuccess(false);
     setSignup(true);
   };
 
   const change = () => {
     setSignup(false);
     setReg(false);
+    setSuccess(false);
     setPopup(true);
   };
 
   const openReg = () => {
     setPopup(false);
     setSignup(false);
+    setSuccess(false);
     setReg(true);
   };
+
+  const openSuccess = () => {
+    setPopup(false);
+    setSignup(false);
+    setReg(false);
+    setSuccess(true);
+  }
 
   const pop = () => {
     setTimeout(change, 3000);
@@ -150,7 +163,9 @@ function Landing() {
         </div>
       )}
       {signup && <SignUp change={openReg} />}
-      {reg && <RegistrationForm />}
+      {reg && <RegistrationForm change={openSuccess}/>}
+      {/* {success && <SuccessPopUp change={openSuccess}/>} */}
+      {/* <RegistrationForm /> */}
     </div>
   );
 }

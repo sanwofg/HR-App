@@ -1,0 +1,127 @@
+import React, { useState } from "react";
+
+function SectionTwoForm({ onPrevious, onSubmit }) {
+
+  // State variables for fields
+  const [selectedAvailableIdCard, setSelectedAvailableIdCard] = useState("");
+  const [selectedHighestQualification, setSelectedHighestQualification] = useState("");
+  const [selectedEmploymentStatus, setSelectedEmploymentStatus] = useState("");
+  const [selectedPreferredCourse, setSelectedPreferredCourse] = useState("");
+  const [selectedHearAboutUs, setSelectedHearAboutUs] = useState("");
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
+
+  // Dropdown Variables
+  const [isAvailableIdCardDropdownOpen, setIsAvailableIdCardDropdownOpen] = useState(false);
+  const [isHighestQualificationDropdownOpen, setIsHighestQualificationDropdownOpen] = useState(false);
+  const [isEmploymentStatusDropdownOpen, setIsEmploymentStatusDropdownOpen] = useState(false);
+  const [isPreferredCourseDropdownOpen, setIsPreferredCourseDropdownOpen] = useState(false);
+  const [isHearAboutUsDropdownOpen, setIsHearAboutUsDropdownOpen] = useState(false);
+    
+ // Dropdown options
+ const idCardOptions = ["Passport", "Driver's Licence", "National ID Card", "Permanent Voter's Card"];
+ const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
+ const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Gainfully employed"];
+ const preferredCourseOptions = ["Software Development/Testing", "Data Analysis", "Digital Marketing", "UI/UX Design", "Machine Learning/Automation"]
+ const aboutusOptions = ["Social Media", "Internet Ad", "Friend/Colleague", "Other means"]
+
+// State variables for field errors
+
+
+// Handle form submission for this section
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validation logic for street address
+    if (!streetAddress.trim()) {
+      setStreetAddressError("*This is a required field.");
+      return;
+    } else {
+      setStreetAddressError("");
+    }
+
+    // Validation logic for city
+    if (!city.trim()) {
+      setCityError("*This is a required field.");
+      return;
+    } else {
+      setCityError("");
+    }
+
+    // Validation logic for state
+    if (!state.trim()) {
+      setStateError("*This is a required field.");
+      return;
+    } else {
+      setStateError("");
+    }
+
+    // Validation logic for country
+    if (!country.trim()) {
+      setCountryError("*This is a required field.");
+      return;
+    } else {
+      setCountryError("");
+    }
+
+    // If all validations pass, submit the form
+    onSubmit();
+  };
+
+  return (
+    <div className="max-w-md mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Address Information</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="streetAddress" className="block font-medium">Street Address</label>
+          <input
+            type="text"
+            id="streetAddress"
+            value={streetAddress}
+            onChange={(e) => setStreetAddress(e.target.value)}
+            className={`form-input ${streetAddressError ? 'border-red-500' : ''}`}
+          />
+          {streetAddressError && <p className="text-red-500 text-sm mt-1">{streetAddressError}</p>}
+        </div>
+        <div>
+          <label htmlFor="city" className="block font-medium">City</label>
+          <input
+            type="text"
+            id="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className={`form-input ${cityError ? 'border-red-500' : ''}`}
+          />
+          {cityError && <p className="text-red-500 text-sm mt-1">{cityError}</p>}
+        </div>
+        <div>
+          <label htmlFor="state" className="block font-medium">State</label>
+          <input
+            type="text"
+            id="state"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            className={`form-input ${stateError ? 'border-red-500' : ''}`}
+          />
+          {stateError && <p className="text-red-500 text-sm mt-1">{stateError}</p>}
+        </div>
+        <div>
+          <label htmlFor="country" className="block font-medium">Country</label>
+          <input
+            type="text"
+            id="country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            className={`form-input ${countryError ? 'border-red-500' : ''}`}
+          />
+          {countryError && <p className="text-red-500 text-sm mt-1">{countryError}</p>}
+        </div>
+        <div className="flex justify-between">
+          <button type="button" onClick={onPrevious} className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Previous</button>
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default SectionTwoForm;
