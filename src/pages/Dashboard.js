@@ -66,10 +66,10 @@ const newTime = ()=>{
           </div>
 
           <div className='flex items-center gap-4'  >
-            <input type='search' placeholder='search' className={`w-64 h-10 rounded-lg outline-none  bordr-[#2F8D47] border-2 placeholder:pl-4 placeholder:py-8 ${openNav?'max-md:hidden': ''} max-md:w-32  max-md:h-7`}/>
+            <input type='search' placeholder='search' className={`w-64 h-10 rounded-lg outline-none  bordr-[#2F8D47] border-2 border-[#2F8D47] pl-3 placeholder:pl-1 placeholder:py-8 ${openNav?'max-md:hidden': ''} max-md:w-32  max-md:h-7`}/>
 
           </div> 
-          <div className='border-2 rounded-lg py-2 px-2 max-md:p-1'>
+          <div className='border-2 border-[#2F8D47] rounded-lg py-2 px-2 max-md:p-1'>
               <img src={notification} alt='notification-bell' width={15} height={15} className={` ${openNav?'max-md:hidden': ''} `}/>
           </div>
         </div>

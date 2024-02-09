@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import SignUp from "./SignupPage";
 import RegistrationForm from "../components/RegistrationForm";
+import { Link } from "react-router-dom";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
@@ -118,9 +119,11 @@ function Landing() {
             </div>
           </div>
           <div className="max-sm:ml-20">
-            <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[15.5rem]">
-              Login
-            </button>
+            <Link to={'/dashboard'}>
+              <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[15.5rem]">
+                Login
+              </button>
+            </Link>
             <p className="font-sans text-xl text-[#565872] text-center max-sm:mr-16">
               or
             </p>
