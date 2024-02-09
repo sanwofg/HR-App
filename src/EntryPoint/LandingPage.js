@@ -69,7 +69,7 @@ function Landing() {
       </div>
 
       {popup && (
-        <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150">
+        <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
           <h1 className="text-2xl text-primary font-semibold font-asset">
             NAIJA 01
           </h1>
@@ -128,6 +128,7 @@ function Landing() {
               or
             </p>
             <GoogleLogin
+              className="max-sm:w-[150px]"
               width={"320px"}
               onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);

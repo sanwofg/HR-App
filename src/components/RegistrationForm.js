@@ -44,7 +44,7 @@ function RegistrationForm () {
   const genderOptions = ["Male", "Female"];
   const idCardOptions = ["Passport", "Driver's Licence", "National ID Card", "Permanent Voter's Card"];
   const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
-  const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Employed"];
+  const employmentOptions = ["Unemployed", "Self-employed", "Under-employed", "Gainfully employed"];
   const preferredCourseOptions = ["Software Development/Testing", "Data Analysis", "Digital Marketing", "UI/UX Design", "Machine Learning/Automation"]
   const aboutusOptions = ["Social Media", "Internet Ad", "Friend/Colleague", "Other means"]
 
@@ -171,7 +171,7 @@ function RegistrationForm () {
 
 
   return (
-    <div className="flex justify-center items-center md:flex-row">
+    <div className="container mx-auto px-4 lg:px-0">
 {/* 
       Background Image
       <div className="lg:w-1/2 fixed">
@@ -179,14 +179,14 @@ function RegistrationForm () {
       </div> */}
 
       {/* Registration Form */}
-      <div className="mx-auto justify-center shadow-sm bg-white flex flex-col px-10 py-11 md:max-md:px-5 z-10">
+      <div className="max-w-2xl mx-auto mt-10">
         <div className="text-green-700 text-center text-3xl font-bold mt-2.5 mx-5 max-md:max-w-full max-md:mr-2.5">
           Let's get you registered.
         </div>
 
       {/* Full Name Section */}
 
-      <div className="text-black text-lg mt-11 max-md:max-w-full max-md:mt-10">
+      <div className="text-black font-semibold text-lg mt-11 max-md:max-w-full max-md:mt-10">
         Full Name (as it appears in your documents)
           <input className={`w-full items-center border flex shrink-0 h-[44px] py-2 flex-col max-md:max-w-full mt-2 pl-5 rounded-xl ${fullNameError ? 'border-red-500' : 'border-solid border-green-700'}`}
             type="text" 
@@ -199,7 +199,7 @@ function RegistrationForm () {
       </div>
       
        {/* Date of Birth (DOB) & Gender Sections */}
-      <div className="mt-6 max-md:max-w-full">
+      <div className="mt-2 max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-6">
               <div className="text-black text-lg font-semibold max-md:max-w-full">Date of Birth</div>
@@ -275,7 +275,7 @@ function RegistrationForm () {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Contact Address
       </div>
-      <div className="items-stretch h-[44px] flex justify-between gap-5 mt-2 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch flex justify-between gap-5 mt-2 max-md:max-w-full max-md:flex-wrap">
         {/* Apartment Field */}
         <input className="text-black text-lg justify-center items-stretch border grow px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Apartment"
@@ -286,24 +286,25 @@ function RegistrationForm () {
         <input className="text-black text-lg justify-center items-stretch border grow px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
           placeholder="Street Name"
           type="text">
-        </input>
+        </input>   
       </div>
 
        {/* City/Town Field */}
-      <input 
-        type="text"
-        placeholder="City/Town"
-        className="text-black text-lg justify-center h-[44px] items-stretch border mt-6 px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5">
-      </input>
+       <input 
+          className="text-black text-lg w-full justify-center items-stretch border mt-6 px-6 py-2 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:px-5"
+          type="text"
+          placeholder="City/Town"> 
+        </input>
 
+       {/* LGA/State Field */}
       
-      <div className="items-stretch flex justify-between gap-5 mt-6 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch flex justify-between gap-5 max-md:max-w-full mt-6 max-md:flex-wrap">
 
-        <div className="flex items-stretch border justify-between gap-0 mt-2 px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
+        <div className="flex items-stretch border justify-between h-[44px] gap-0 mt-2 px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
           <input 
             type="text"
             placeholder="LGA"
-            className="text-black text-lg grow h-[44px]">
+            className="text-black text-lg grow">
           </input>
           <img
             loading="lazy"
@@ -312,11 +313,11 @@ function RegistrationForm () {
           />
         </div>
   
-        <div className=" items-stretch border flex justify-between gap-0 mt-2 px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
+        <div className=" flex items-stretch border justify-between h-[44px] gap-0 mt-2  px-6 py-2 w-full rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5">
           <input
               type="text"
               placeholder="State"
-              className="text-black text-lg grow h-[44px]"></input>
+              className="text-black text-lg grow"></input>
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/64462fc9619791bf8b68c2def239fa154ee59f0442c07837798cfb86fe3dd443?"
@@ -467,7 +468,7 @@ function RegistrationForm () {
       <div className="text-black text-lg font-semibold mt-6 max-md:max-w-full">
         Why choose preferred course ?
       </div>
-      <input className="text-black text-lg items-stretch border mt-2 pt-3.5 pb-24 px-6 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
+      <input className="text-black text-lg items-stretch border mt-2 pt-3.5 pb-24 px-6 rounded-xl w-full border-solid border-green-700 max-md:max-w-full max-md:pb-10 max-md:px-5"
               placeholder="Why have you chosen this course?"
               type="text">
         
@@ -501,21 +502,21 @@ function RegistrationForm () {
       </div>
 
        {/* Terms and Conditions Section */}
-      <div className="items-stretch flex justify-between gap-4 pb-2.5 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch flex  pb-2.5 max-md:max-w-full max-md:flex-wrap">
         <input 
           type="checkbox"
           className={`border ${isTermsChecked ? 'bg-green-700' : 'bg-white'}flex w-[30px] shrink-0 h-[30px] flex-col my-auto border-solid border-green-700`}
           onClick={() => setIsTermsChecked(!isTermsChecked)} 
           />
-        <p className="flex justify-center py-2 text-black text-lg font-light grow max-md:max-w-full">
+        <p className="py-2 px-2 text-black text-lg font-light grow max-md:max-w-full">
           I have read and agree to the terms and conditions.
         </p>
       </div>
 
          {/* Submit Button */}
      <div className="flex justify-center">
-     <Link to={'/unsuccessfullreg'}>
-        <button  className="text-white text-center text-xl justify-center items-center bg-green-700 self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
+     <Link to={'/successfulreg'}>
+        <button  className="text-white text-center text-xl justify-center items-center bg-[green-700] self-center w-[200px] max-w-full px-8 py-2 rounded-xl max-md:px-5 cursor-pointer">
           Submit
         </button>
       </Link>
