@@ -129,25 +129,40 @@ function Landing() {
               </span>
             </div>
           </div>
-          <div className="max-sm:ml-20">
+          <div className="items-center">
             <Link to={'/dashboard'}>
-              <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[15.5rem]">
+              <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 ">
                 Login
               </button>
             </Link>
-            <p className="font-sans text-xl text-[#565872] text-center max-sm:mr-16">
+            <p className="font-sans text-xl text-[#565872] text-center ">
               or
             </p>
-            <GoogleLogin
-              className="max-sm:w-[150px]"
-              width={"320px"}
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-            />
+            <div className="max-sm:hidden">
+              <GoogleLogin
+                className=""
+                width={"320px"}
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
+            <div className="sm:hidden">
+              <GoogleLogin
+                className="max-sm:w-[150px]"
+                // width={"320px"}
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
+           
           </div>
 
           <div className="flex flex-row justify-center gap-2 font-sans">
