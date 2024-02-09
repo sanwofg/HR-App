@@ -16,6 +16,7 @@ import GooglePage from "./EntryPoint/GooglePage";
 import RegistrationForm from "./components/RegistrationForm";
 import UnsuccessfulPopUp from "./components/unsuccessulpopup";
 import SuccessPopUp from "./components/successpopup";
+import EmailReset from "./EntryPoint/EmailReset";
 function App() {
   const [openNav, setOpenNav] = useState(true);
   const open = () => {
@@ -39,7 +40,14 @@ function App() {
           <Route path="/successfulreg" element={<SuccessPopUp />} />
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
 
-          {/* Protected Routes */}
+          {openNav && (
+            <Route
+              path="/SideNav"
+              element={
+                <SideNav toggle={open} openNav={openNav} close={close} />
+              }
+            />
+          )}
           <Route
             path="/dashboard/*"
             element={

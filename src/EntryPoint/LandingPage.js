@@ -6,12 +6,14 @@ import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import SignUp from "./SignupPage";
 import RegistrationForm from "../components/RegistrationForm";
+import EmailReset from "./EmailReset";
 import { Link } from "react-router-dom";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
   const [signup, setSignup] = useState(false);
   const [reg, setReg] = useState(false);
+  const [reset, setReset] = useState(false);
 
   const popsign = () => {
     setPopup(false);
@@ -29,6 +31,12 @@ function Landing() {
     setPopup(false);
     setSignup(false);
     setReg(true);
+  };
+
+  const resetEmail = () => {
+    setReset(true);
+    setPopup(false);
+    setSignup(false);
   };
 
   const pop = () => {
@@ -113,9 +121,12 @@ function Landing() {
                 <p className="text-[#565872]">Remember me</p>
               </div>
 
-              <a href="" className="text-[#0c7c3f] font-bold">
+              <span
+                onClick={resetEmail}
+                className="text-[#0c7c3f] font-bold cursor-pointer"
+              >
                 Forgot password?
-              </a>
+              </span>
             </div>
           </div>
           <div className="max-sm:ml-20">
@@ -154,6 +165,7 @@ function Landing() {
       )}
       {signup && <SignUp change={change} />}
       {reg && <RegistrationForm />}
+      {reset && <EmailReset />}
     </div>
   );
 }
