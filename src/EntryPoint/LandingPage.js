@@ -66,7 +66,11 @@ function Landing() {
     <div className="h-screen flex flex-col items-center justify-around bg-[#0c7c3f] max-sm:w-screen">
       <div className="flex flex-col gap-16">
         <div className="flex justify-center">
-          <img src={logo} alt="" className="w-48 motion-safe:animate-spin" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-48 motion-safe:animate-spin"
+          />
         </div>
         <div>
           <h1 className="text-[white] font-normal text-4xl font-sans text-center">
@@ -130,14 +134,12 @@ function Landing() {
             </div>
           </div>
           <div className="items-center">
-            <Link to={'/dashboard'}>
+            <Link to={"/dashboard"}>
               <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 ">
                 Login
               </button>
             </Link>
-            <p className="font-sans text-xl text-[#565872] text-center ">
-              or
-            </p>
+            <p className="font-sans text-xl text-[#565872] text-center ">or</p>
             <div className="max-sm:hidden">
               <GoogleLogin
                 className=""
@@ -162,7 +164,6 @@ function Landing() {
                 }}
               />
             </div>
-           
           </div>
 
           <div className="flex flex-row justify-center gap-2 font-sans">

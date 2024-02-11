@@ -16,7 +16,7 @@ function EmailReset() {
   });
 
   return (
-    <div className="w-[25rem] h-[26rem] bg-[white] shadow-2xl flex flex-col justify-around items-center absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150">
+    <div className="w-[25rem] h-[26rem] bg-[white] shadow-2xl flex flex-col justify-around items-center absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
       <h1 className="text-2xl text-primary font-semibold font-asset">
         NAIJA 01
       </h1>
