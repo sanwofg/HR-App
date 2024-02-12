@@ -41,7 +41,7 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-[#ffffff] absolute">
+    <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-[#ffffff] absolute max-sm:w-[20rem]">
       {/* Stepper */}
       <div className="container horizontal mt-2">
         <Stepper steps={steps} currentStep={currentStep} />
