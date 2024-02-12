@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Signup from "./components/Signup";
+
 import SideNav from "./components/SideNav";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ import GooglePage from "./EntryPoint/GooglePage";
 import RegistrationForm from "./components/RegistrationForm";
 import UnsuccessfulPopUp from "./components/unsuccessulpopup";
 import SuccessPopUp from "./components/successpopup";
-import EmailReset from "./EntryPoint/EmailReset";
+
 function App() {
   const [openNav, setOpenNav] = useState(true);
   const open = () => {
@@ -39,15 +39,6 @@ function App() {
           <Route path="/registration" element={<RegistrationForm />} />
           <Route path="/successfulreg" element={<SuccessPopUp />} />
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
-
-          {openNav && (
-            <Route
-              path="/SideNav"
-              element={
-                <SideNav toggle={open} openNav={openNav} close={close} />
-              }
-            />
-          )}
           <Route
             path="/dashboard/*"
             element={

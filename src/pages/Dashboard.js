@@ -7,8 +7,8 @@ import users from './assets/users.png'
 import code from './assets/web-coding.png'
 import javsscript from './assets/javascript.png'
 import python from './assets/python.png'
-import Chart from 'chart.js/auto';
-import {CategoryScale} from 'chart.js';
+// import Chart from 'chart.js/auto';
+// import {CategoryScale} from 'chart.js';
 import { Bar } from "react-chartjs-2";
 import GaugeChart from 'react-gauge-chart'
 
