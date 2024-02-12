@@ -1,8 +1,8 @@
-import {useState, useContext} from 'react'
-import {StepperContext} from '../../contexts/StepperContext'
+import {useState} from 'react'
+// import {StepperContext} from '../../contexts/StepperContext'
 
 export default function StepTwo () {
-  const {userData, setUserData} = useContext(StepperContext);
+  // const {userData, setUserData} = useContext(StepperContext);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [nin, setNIN] = useState("");
 
@@ -13,10 +13,10 @@ export default function StepTwo () {
   const [ninError, setNINError] = useState("");
 
 
-  const handleChange =(e)=> {
-  const { name, value } = e.target;
-  setUserData({ ...userData, [name]: value});
-};
+//   const handleChange =(e)=> {
+//   const { name, value } = e.target;
+//   setUserData({ ...userData, [name]: value});
+// };
 
 
 const handleHighestQualificationSelect = (highestqualification) => {
@@ -109,6 +109,7 @@ return (
       <div className="flex justify-between max-sm:pt-1.5 items-stretch border gap-0 px-6 h-[32px] rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5" onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}>
         <div className="flex justify-start text-black text-lg max-sm:text-xs grow max-md:max-w-full">{selectedHighestQualification || "Select most recent qualification"}</div>
         <img
+          alt='down arrow'
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/4035bd7c4c31a69d81d69f1b668cbec517add3e495421449b948b0d2d0baf315?"
           className="aspect-[2.22] object-contain object-center w-[22px] fill-black shrink-0 my-auto"

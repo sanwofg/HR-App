@@ -1,5 +1,5 @@
 import React from 'react'
-import image from "../../Assets/mark.png"
+import image from "../Assets/mark.png"
 
 export default function Final() {
   return (

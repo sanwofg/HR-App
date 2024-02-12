@@ -66,14 +66,14 @@ const Stepper = ( { steps , currentStep }) => {
           index !== newStep.length -1 ? 'w-full flex items-center' : 'flex items-center'
         }
         >
-          <div className='relative flex flex-col items-center text-teal-600'>
-            <div className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 
+          <div className='relative flex flex-col items-center text-[#00867D]'>
+            <div className={`rounded-full transition duration-500 ease-in-out border-2 border-[#D1D5DB] 
             h-10 w-10 flex items-center justify-center py-3 ${step.selected ? 
-              'bg-green-600 text-white font-bold border border-green-600' : ''}`}
+              'bg-[#40cf87] text-[#FFFFFF] font-bold border border-[#0c7c3f]' : ''}`}
             >
               {/* Display number */}
               {step.completed ? (
-                <span className='text-white text-xl font-bold'>&#10003;
+                <span className='text-[#FFFFFF] text-xl font-bold'>&#10003;
                 </span>
               ) : (
                 index + 1
@@ -81,14 +81,14 @@ const Stepper = ( { steps , currentStep }) => {
             </div>
             
             <div className={`absolute top-0 text-center mt-16 w-32 text-xs font-medium uppercase
-            ${step.highlighted ? 'text-gray-900' : 'text-gray-400'}`}>
+            ${step.highlighted ? 'text-[#111827]' : 'text-[#9CA3AF]'}`}>
               {/* Display description */}
               {step.description}
             </div>
           </div>
           
           <div className={`flex-auto border-t-2 transition duration-500 
-          ease-in-out ${step.completed ? 'border-green-600' : 'border-gray-300'}`}>
+          ease-in-out ${step.completed ? 'border-[#0c7c3f]' : 'border-[#D1D5DB]'}`}>
             {/* Display line */}
           </div>
         </div>

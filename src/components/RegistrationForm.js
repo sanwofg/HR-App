@@ -1,6 +1,6 @@
 
 import {useState} from "react"
-import Stepper from "./StepperControl";
+import Stepper from "./Stepper";
 import StepperControl from "./StepperControl";
 import { StepperContext } from "../contexts/StepperContext";
 import StepOne from "./steps/StepOne";
@@ -10,7 +10,6 @@ import Final from "./steps/Final";
 import StepFour from "./steps/StepFour"
 
 function RegistrationForm() {
-
   const [currentStep, setCurrentStep] = useState(1);
   const [userData, setUserData] = useState('');
   const [finalData, setFinalData] = useState('')
@@ -25,7 +24,7 @@ function RegistrationForm() {
   ]
 
   const displayStep =(step) => {
-    switch(step) {
+    switch (step) {
       case 1:
         return <StepOne />
       case 2:
@@ -38,20 +37,19 @@ function RegistrationForm() {
         return <Final />
       default:
     }
-  }
+  };
 
   const handleClick = (direction) => {
     let newStep = currentStep;
 
-    direction === 'next' ? newStep++ : newStep--;
+    direction === 'next' ? (newStep++) : (newStep--);
 
     //check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-  }
+  };
 
   return (
-    <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-      
+    <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-[#ffffff]">
       {/* Stepper */}
       <div className="container horizontal mt-2"> 
         <Stepper 
@@ -73,7 +71,7 @@ function RegistrationForm() {
       </div>
 
       {/* Navigation controls */}
-      {currentStep != steps.length &&
+      {currentStep !== steps.length &&
       <StepperControl 
       handleClick={handleClick}
       currentStep={currentStep}
