@@ -35,7 +35,9 @@ function EmailReset() {
               {...formik.getFieldProps("email")}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className="text-xs text-[red]">{formik.errors.email}</div>
+              <div className="text-xs text-[red] max-sm:ml-10">
+                {formik.errors.email}
+              </div>
             ) : null}
           </div>
         </form>
