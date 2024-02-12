@@ -18,7 +18,7 @@ export default function Final() {
           Your Account has been created.
         </div>
 
-        <a className='max-sm:mt-2 mt-2' href='/registration'>
+        <a className='max-sm:mt-2 mt-2' href='/dashboard'>
           <button className='h-10 px-5 max-sm:text-xs text-green-700 transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-green-500 hover:text-green-100'>
             Close
            </button>
