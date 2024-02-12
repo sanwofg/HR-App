@@ -19,21 +19,21 @@ function Landing() {
   const popsign = () => {
     setPopup(false);
     setReg(false);
-    setSuccess(false);
+    // setSuccess(false);
     setSignup(true);
   };
 
   const change = () => {
     setSignup(false);
     setReg(false);
-    setSuccess(false);
+    // setSuccess(false);
     setPopup(true);
   };
 
   const openReg = () => {
     setPopup(false);
     setSignup(false);
-    setSuccess(false);
+    // setSuccess(false);
     setReg(true);
   };
 
@@ -42,7 +42,7 @@ function Landing() {
     setSignup(false);
     setReg(false);
     setSuccess(true);
-  }
+  };
 
   const resetEmail = () => {
     setReset(true);
@@ -146,11 +146,14 @@ function Landing() {
             </div>
           </div>
           <div className="items-center">
-            <Link to={"/dashboard"}>
-              <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 ">
-                Login
-              </button>
-            </Link>
+            {/* <Link to={"/dashboard"}> */}
+            <button
+              onClick={openSuccess}
+              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
+            >
+              Login
+            </button>
+            {/* </Link> */}
             <p className="font-sans text-xl text-[#565872] text-center ">or</p>
             <div className="max-sm:hidden">
               <GoogleLogin
@@ -192,7 +195,7 @@ function Landing() {
         </div>
       )}
       {signup && <SignUp change={change} />}
-      {reg && <RegistrationForm />}
+      {success && <RegistrationForm />}
       {reset && <EmailReset />}
     </div>
   );
