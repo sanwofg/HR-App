@@ -11,11 +11,7 @@ import Menu from './Assets/menus.png'
 
 
 const SideNav = ({children, openNav, close}) => {
-    // const [openNav, setOpenNav]=useState(true)
-
-    // const close=()=>{
-    //     setOpenNav(!openNav)
-    // }
+    
 
   return (
     <div className='w-full flex overflow-y-hidden justify-between'>

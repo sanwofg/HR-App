@@ -7,8 +7,8 @@ import users from './assets/users.png'
 import code from './assets/web-coding.png'
 import javsscript from './assets/javascript.png'
 import python from './assets/python.png'
-// import Chart from 'chart.js/auto';
-// import {CategoryScale} from 'chart.js';
+import Chart from 'chart.js/auto';
+import {CategoryScale} from 'chart.js';
 import { Bar } from "react-chartjs-2";
 import GaugeChart from 'react-gauge-chart'
 
@@ -207,10 +207,12 @@ const newTime = ()=>{
 
         </div>
          
-         {/* Statistics */}
+                       {/* Statistics */}
 
-        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1 w-full max-md:ml-[0px] mt-11 ${!openNav? 'md: ml-24' : 'ml-[]0px'}` }>
+        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1  mt-11 w-full ` }>
 
+
+                        {/* Bar chat */}
           <div className={`flex flex-col ${openNav? 'max-sm:hiddenn': ''} w-[410px] h-[220px] max-sm:w-[250px]`}>
             <div>
               <p className='font-semibold'> Hours Spent</p>
@@ -220,8 +222,10 @@ const newTime = ()=>{
             </div>
           </div>
 
+
+                        {/* Performance Guage */}
           <div className=' flex flex-col gap-4 max-sm:w-[250px] '>
-               <div> 
+              <div> 
                 <p className='font-semibold'> Performance</p>
               </div>
 
