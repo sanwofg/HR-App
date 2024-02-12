@@ -145,7 +145,7 @@ function Landing() {
             </div>
           </div>
           <div className="items-center">
-            <Link to={"/registration"}>
+            <Link to={"/dashboard"}>
               <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 ">
                 Login
               </button>
