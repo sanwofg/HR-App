@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Courses from './Assets/courses.png'
-import Overview from './Assets/overview.png'
+// import Overview from './Assets/overview.png'
 import Home from './Assets/dashbord.png'
 import Assignment from './Assets/assignments.png'
 // import Book from './book.png'
@@ -11,11 +11,7 @@ import Menu from './Assets/menus.png'
 
 
 const SideNav = ({children, openNav, close}) => {
-    // const [openNav, setOpenNav]=useState(true)
-
-    // const close=()=>{
-    //     setOpenNav(!openNav)
-    // }
+    
 
   return (
     <div className='w-full flex overflow-y-hidden justify-between'>
