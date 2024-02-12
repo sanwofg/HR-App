@@ -14,24 +14,35 @@ function Landing() {
   const [signup, setSignup] = useState(false);
   const [reg, setReg] = useState(false);
   const [reset, setReset] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const popsign = () => {
     setPopup(false);
     setReg(false);
+    setSuccess(false);
     setSignup(true);
   };
 
   const change = () => {
     setSignup(false);
     setReg(false);
+    setSuccess(false);
     setPopup(true);
   };
 
   const openReg = () => {
     setPopup(false);
     setSignup(false);
+    setSuccess(false);
     setReg(true);
   };
+
+  const openSuccess = () => {
+    setPopup(false);
+    setSignup(false);
+    setReg(false);
+    setSuccess(true);
+  }
 
   const resetEmail = () => {
     setReset(true);

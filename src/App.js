@@ -13,8 +13,8 @@ import SignupPage from "./EntryPoint/SignupPage";
 import LoginPage from "./EntryPoint/LoginPage";
 import LandingPage from "./EntryPoint/LandingPage";
 import GooglePage from "./EntryPoint/GooglePage";
-import RegistrationForm from "./components/RegistrationForm";
-import UnsuccessfulPopUp from "./components/unsuccessulpopup";
+// import RegistrationForm from "./components/RegistrationForm";
+import UnsuccessfulPopUp from './components/UnsuccessfulPopup'
 import SuccessPopUp from "./components/successpopup";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/google-signup" element={<GooglePage />} />
-          <Route path="/registration" element={<RegistrationForm />} />
+          {/* <Route path="/registration" element={<RegistrationForm />} /> */}
           <Route path="/successfulreg" element={<SuccessPopUp />} />
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
           <Route
