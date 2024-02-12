@@ -121,6 +121,7 @@ function Landing() {
             </form>
             <div className="flex flex-row justify-between w-[20rem] mt-2 text-sm font-sans max-sm:w-[15rem] max-sm:text-sm">
               <div className="flex flex-row gap-1">
+                .
                 <input type="checkbox" />
                 <p className="text-[#565872]">Remember me</p>
               </div>
