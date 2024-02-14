@@ -1,7 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
 
 function Login() {
   const formik = useFormik({
@@ -21,8 +20,8 @@ function Login() {
   });
 
   return (
-    <div className="h-screen flex items-center justify-center">
-      <div className="w-[25rem] h-[32rem] bg-[white] shadow-lg flex flex-col justify-around items-center m-auto rounded-[10px] gap-7">
+    <div className="h-screen flex items-center justify-center max-sm:pl-32">
+      <div className="w-[27rem] h-[32rem] bg-[white] shadow-lg flex flex-col justify-around items-center m-auto rounded-[10px] gap-7">
         <h1 className="text-2xl text-primary font-semibold mt-[2rem]">
           HR APP
         </h1>
@@ -31,7 +30,7 @@ function Login() {
           className=" w-80 h-20 flex flex-col justify-between gap-10 mb-[4rem] "
         >
           <input
-            className="h-12 mt-1 px-3 py-2 bg-white border-2 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none placeholder:italic placeholder:text-base placeholder:text-[#565872]  placeholder:font-sans focus:border-[#0c7c3f] focus:ring-[#0c7c3f] block w-80 rounded sm:text-sm focus:ring-1 max-sm:w-60 max-sm:ml-10"
+            className="h-12 mt-1 px-3 py-2 bg-white border-2 border-[#0c7c3f] shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none placeholder:italic placeholder:text-base placeholder:text-[#565872]  placeholder:font-sans focus:border-sky-500 focus:ring-sky-500 block w-80 rounded sm:text-sm focus:ring-1 max-sm:w-60 max-sm:ml-10"
             name="email"
             type="email"
             placeholder="Email"
@@ -43,7 +42,7 @@ function Login() {
             </div>
           ) : null}
           <input
-            className="h-12 mt-1 px-3 py-2 bg-white border-2 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none placeholder:italic placeholder:text-base placeholder:text-[#565872]  focus:border-[#0c7c3f] focus:ring-[0c7c3f] block w-80 rounded sm:text-sm focus:ring-1 max-sm:w-60 max-sm:ml-10"
+            className="h-12 mt-1 px-3 py-2 bg-white border-2 border-[#0c7c3f] shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none placeholder:italic placeholder:text-base placeholder:text-[#565872]  focus:border-sky-500 focus:ring-sky-500 block w-80 rounded sm:text-sm focus:ring-1 max-sm:w-60 max-sm:ml-10"
             name="password"
             type="text"
             placeholder="Password"
@@ -63,11 +62,9 @@ function Login() {
           </a>
         </div>
         <div>
-          <Link to={"/dashboard"}>
-            <button className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] mt-6 text-xl font-semibold rounded cursor-pointer hover:bg-[#38454F] max-sm:w-60">
-              Login
-            </button>
-          </Link>
+          <button className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] mt-6 text-xl font-semibold rounded cursor-pointer hover:bg-[#38454F] max-sm:w-60">
+            Login
+          </button>
         </div>
         <div className="flex flex-row justify-center gap-2 mb-[3rem]">
           <p className="text-base text-[#565872]">Don't have an account yet?</p>
