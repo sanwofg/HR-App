@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import StatesAndLGAs from "./necessarydata.json";
 
 export default function StepOne() {
-  const { userData, setUserData, setCurrentStep, totalSteps } = useContext(StepperContext);
+  const { userData, setUserData, setCurrentStep } = useContext(StepperContext);
 
   const [fullName, setFullName] = useState("");
   const [dob, setDob] = useState(null);
@@ -19,6 +19,18 @@ export default function StepOne() {
   const [addressError, setAddressError] = useState("");
   const [stateError, setStateError] = useState("");
   const [lgaError, setLgaError] = useState("");
+
+   // Function to check if all required fields are filled
+   const areAllFieldsFilled = () => {
+    return (
+      fullName.trim() &&
+      dob &&
+      selectedGender &&
+      userData.address.trim() &&
+      userData.state &&
+      userData.lga
+    );
+  };
 
   const handleBlur = (field, value) => {
     switch (field) {
@@ -48,30 +60,16 @@ export default function StepOne() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Check if all fields are filled
-    if (!fullName.trim()) {
-      setFullNameError("*This is a required field.");
+    if (!areAllFieldsFilled()) {
+      setFullNameError(fullName.trim() ? "" : "*This is a required field.");
+      setDobError(dob ? "" : "*This is a required field.");
+      setGenderError(selectedGender ? "" : "*This is a required field.");
+      setAddressError(userData.address.trim() ? "" : "*This is a required field.");
+      setStateError(userData.state ? "" : "*This is a required field.");
+      setLgaError(userData.lga ? "" : "*This is a required field.");
       return;
     }
-    if (!dob) {
-      setDobError("*This is a required field.");
-      return;
-    }
-    if (!selectedGender) {
-      setGenderError("*This is a required field.");
-      return;
-    }
-    if (!userData.address.trim()) {
-      setAddressError("*This is a required field.");
-      return;
-    }
-    if (!userData.state) {
-      setStateError("*This is a required field.");
-      return;
-    }
-    if (!userData.lga) {
-      setLgaError("*This is a required field.");
-      return;
-    }
+    
     // Proceed to the next step if all fields are filled
     setCurrentStep((prevStep) => prevStep + 1);
   };
@@ -171,10 +169,6 @@ export default function StepOne() {
             </div>
           </div>
         </div>
-      </div>
-      {/* Navigation buttons */}
-      <div className="flex justify-end mt-6 mr-8">
-        <button className="text-white bg-indigo-500 hover:bg-indigo-600 px-6 py-2 rounded-lg" onClick={handleSubmit}>Next</button>
       </div>
     </div>
   );

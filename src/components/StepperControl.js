@@ -1,10 +1,13 @@
 import React from 'react';
 
-const StepperControl = ({ handleClick, handleSubmit, currentStep, steps }) => {
+const StepperControl = ({ handleClick, handleSubmit, currentStep, steps, allFieldsFilled }) => {
+  
   const handleNextButtonClick = () => {
+    if (allFieldsFilled ()) {
     handleSubmit(); // Call the handleSubmit function
     handleClick("next"); // Call the handleClick function with "next" argument
-  };
+  }
+};
 
   return (
     <div className='container flex justify-around m-1'> 
@@ -24,6 +27,7 @@ const StepperControl = ({ handleClick, handleSubmit, currentStep, steps }) => {
         className='bg-[#4CAF50] text-[#ffffff] uppercase py-1 px-2 rounded-xl font-semibold 
         cursor-pointer hover:bg-[#3e4e62] hover:text-[#ffffff] transition 
         duration-200 ease-in-out'
+        disabled={!allFieldsFilled()}
       >
         {currentStep === steps.length -1 ? 'Confirm': 'Next'}
       </button>
