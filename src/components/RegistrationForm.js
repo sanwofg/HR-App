@@ -98,6 +98,7 @@ function RegistrationForm( {handleSubmit}) {
       handleClick={handleClick}
       currentStep={currentStep}
       steps={steps}
+      allFieldsFilled={allFieldsFilled}
       formData={formData[`step${currentStep}`]}
       formErrors={formErrors[`step${currentStep}`]}
 
