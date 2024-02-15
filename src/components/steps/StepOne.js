@@ -5,12 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import StatesAndLGAs from "./necessarydata.json";
 
 export default function StepOne() {
-  const { userData, setUserData, setCurrentStep } = useContext(StepperContext);
+  const { userData, setUserData, setCurrentStep, totalSteps } = useContext(StepperContext);
 
   const [fullName, setFullName] = useState("");
   const [dob, setDob] = useState(null);
   const [selectedGender, setSelectedGender] = useState("");
   const [genderOptions] = useState(["Male", "Female"]);
+  const [address, setAddress] = useState("") 
 
   // Error states
   const [fullNameError, setFullNameError] = useState("");
@@ -19,18 +20,6 @@ export default function StepOne() {
   const [addressError, setAddressError] = useState("");
   const [stateError, setStateError] = useState("");
   const [lgaError, setLgaError] = useState("");
-
-   // Function to check if all required fields are filled
-   const areAllFieldsFilled = () => {
-    return (
-      fullName.trim() &&
-      dob &&
-      selectedGender &&
-      userData.address.trim() &&
-      userData.state &&
-      userData.lga
-    );
-  };
 
   const handleBlur = (field, value) => {
     switch (field) {
@@ -57,23 +46,6 @@ export default function StepOne() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Check if all fields are filled
-    if (!areAllFieldsFilled()) {
-      setFullNameError(fullName.trim() ? "" : "*This is a required field.");
-      setDobError(dob ? "" : "*This is a required field.");
-      setGenderError(selectedGender ? "" : "*This is a required field.");
-      setAddressError(userData.address.trim() ? "" : "*This is a required field.");
-      setStateError(userData.state ? "" : "*This is a required field.");
-      setLgaError(userData.lga ? "" : "*This is a required field.");
-      return;
-    }
-    
-    // Proceed to the next step if all fields are filled
-    setCurrentStep((prevStep) => prevStep + 1);
-  };
-
   return (
     <div className='flex flex-col'>
       <div className="container mx-auto px-4 lg:px-0 bg-white">
@@ -88,7 +60,7 @@ export default function StepOne() {
               onBlur={() => handleBlur("fullName", fullName)}
               placeholder="Enter your full name"
             />
-            {fullNameError && <p className="text-[#ef4444] sm:text-xs mt-1">{fullNameError}</p>}
+            {fullNameError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{fullNameError}</p>}
           </div>
 
           <div className="mt-2 max-sm:mt-1 max-md:max-w-full ">
@@ -132,11 +104,11 @@ export default function StepOne() {
               className={`text-black text-lg justify-center max-sm:text-xs items-stretch border grow px-6 h-[32px] rounded-xl border-solid ${addressError ? 'border-red-500' : 'border-green-700'} max-md:max-w-full max-md:px-5`}
               placeholder="Home Address"
               type="text"
-              value={userData.address}
-              onChange={(e) => setUserData({ ...userData, address: e.target.value })}
-              onBlur={() => handleBlur("address", userData.address)}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              onBlur={() => handleBlur("address", address)}
             />
-            {addressError && <p className="text-[#ef4444] sm:text-xs mt-1">{addressError}</p>}
+            {addressError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{addressError}</p>}
           </div>
 
           {/* LGA/State Field */}

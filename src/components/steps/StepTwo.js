@@ -5,7 +5,8 @@ export default function StepTwo () {
   // const {userData, setUserData} = useContext(StepperContext);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [nin, setNIN] = useState("");
-
+  const [certificateFile, setCertificateFile] = useState(null);
+  
   const [selectedHighestQualification, setSelectedHighestQualification] = useState("");
   const [isHighestQualificationDropdownOpen, setIsHighestQualificationDropdownOpen] = useState(false);
   const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
@@ -47,7 +48,11 @@ const handleNINChange = (e) => {
     setNINError("11 digits are required.");
   }
 };
- 
+
+// const handleCertificateFileChange = (e) => {
+//   const file = e.target.files[0];
+//   setCertificateFile(file);
+// };
  
 //  // Validation logic for phone number
 //  if (!phoneNumber.trim() || phoneNumber.length !== 11 || isNaN(phoneNumber)) {
