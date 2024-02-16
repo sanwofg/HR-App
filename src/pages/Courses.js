@@ -14,7 +14,7 @@ const Courses = ({openNav}) => {
   labels: labell,
   datasets: [
     {
-      label: "Staffs per Departments",
+      label: "Total Staffs",
       backgroundColor: "rgb(47, 141, 71)",
       data: [20, 5, 6, 7, 10,],
       borderRadius:4,
