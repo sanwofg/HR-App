@@ -209,7 +209,7 @@ const newTime = ()=>{
          
                        {/* Statistics */}
 
-        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1  mt-11 w-full ` }>
+        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1 ${openNav? 'ml-[0px]': 'ml-24'}  mt-11 w-full ` }>
 
 
                         {/* Bar chat */}
