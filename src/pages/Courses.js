@@ -79,7 +79,7 @@ const Courses = ({openNav}) => {
           </div>
 
           <div>
-            <p className='font-bold text-2xl'>636</p>
+            <p className='font-bold text-2xl'>12</p>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ const Courses = ({openNav}) => {
           </div>
 
           <div>
-            <p className='font-bold text-2xl'>36</p>
+            <p className='font-bold text-2xl'>76</p>
           </div>
         </div>
 
