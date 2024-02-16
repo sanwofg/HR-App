@@ -18,7 +18,7 @@ import UnsuccessfulPopUp from './components/UnsuccessfulPopup'
 import SuccessPopUp from "./components/successpopup";
 
 function App() {
-  const [openNav, setOpenNav] = useState(true);
+  const [openNav, setOpenNav] = useState(false);
   const open = () => {
     setOpenNav(!openNav);
   };
@@ -46,7 +46,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/assignment" element={<Assignment />} />
-                  <Route path="/courses" element={<Courses />} />
+                  <Route path="/courses" element={<Courses openNav={openNav} close={close} />} />
                   <Route path="/reports" element={<Reports />} />
                   <Route path="/settings" element={<Settings />} />
                 </Routes>

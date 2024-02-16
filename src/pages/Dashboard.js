@@ -18,7 +18,7 @@ const Dashboard = ({openNav, close}) => {
 
   const labels = ["Jan", "Feb", "Mar", "Apr", "May"];
 
-const data = {
+  const data = {
   labels: labels,
   datasets: [
     {

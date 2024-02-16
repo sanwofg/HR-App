@@ -16,7 +16,7 @@ const SideNav = ({children, openNav, close}) => {
   return (
     <div className='w-full flex overflow-y-hidden justify-between'>
 
-        <div className={`${openNav? 'w-[20%]' : 'w-[5%]'} gap-4 h-[100vh] fixed flex-col bg-[#2F8D47] px-2 py-4 ${ openNav? 'max-md:w-[40%]' : 'max-md:w-[60px]'}`}>
+        <div className={`${openNav? 'w-[20%]' : 'w-[5%]'} gap-4 h-screen fixed flex-col bg-[#2F8D47] px-2 py-4 ${ openNav? 'max-md:w-[40%] absolute'  : 'max-md:w-[60px]'}`}>
             
             <div className={`bg-white flex justify-end ${ openNav? 'max-md:justify-end' : 'max-md:justify-center'}  ${!openNav? 'max-md:w-11' : 'max-md:w-full'} bg-[white]` }>
                 <img onClick={close} src={Menu} width={40} height={40}/> 
@@ -51,7 +51,7 @@ const SideNav = ({children, openNav, close}) => {
         </div>
 
 
-        <main className={`text-black  h-scren flex-1 ${openNav? 'ml-[20%]' : 'ml-[5%]'}  ${openNav? 'max-md:ml-[41%]' : 'max-md:ml-[63px]'} py-4`}>{children}</main>
+        <main className={`text-black  h-scren flex-1 ${openNav? 'ml-[20%]' : 'ml-[5%]'}  ${openNav? 'max-md:ml-[0%]' : 'max-md:ml-[63px]'} py-4`}>{children}</main>
     </div>
   )
 }
