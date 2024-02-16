@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import React, { useState } from "react";
 import Stepper from "./Stepper";
 import StepperControl from "./StepperControl";
@@ -11,8 +11,27 @@ import StepFour from "./steps/StepFour";
 
 function RegistrationForm() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [userData, setUserData] = useState("");
   const [finalData, setFinalData] = useState("");
+  const [userData, setUserData] = useState({
+    fullName: "",
+    dob: null,
+    selectedGender: "",
+    address: "",
+    state: "",
+    lga: "",
+    phoneNumber: "",
+    nin: "",
+    certificateFile: "",
+  });
+  const [fullNameError, setFullNameError] = useState("");
+  const [dobError, setDobError] = useState("");
+  const [genderError, setGenderError] = useState("");
+  const [addressError, setAddressError] = useState("");
+  const [stateError, setStateError] = useState("");
+  const [lgaError, setLgaError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [ninError, setNINError] = useState("");
+  const [certificateFileError, setCertificateFileError] = useState("");
 
   const steps = ["Step 1", "Step 2", "Step 3", "Step 4", "Complete"];
 
