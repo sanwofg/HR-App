@@ -5,7 +5,8 @@ export default function StepTwo () {
   // const {userData, setUserData} = useContext(StepperContext);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [nin, setNIN] = useState("");
-
+  const [certificateFile, setCertificateFile] = useState(null);
+  
   const [selectedHighestQualification, setSelectedHighestQualification] = useState("");
   const [isHighestQualificationDropdownOpen, setIsHighestQualificationDropdownOpen] = useState(false);
   const eduQualificationOptions = ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"];
@@ -47,7 +48,11 @@ const handleNINChange = (e) => {
     setNINError("11 digits are required.");
   }
 };
- 
+
+// const handleCertificateFileChange = (e) => {
+//   const file = e.target.files[0];
+//   setCertificateFile(file);
+// };
  
 //  // Validation logic for phone number
 //  if (!phoneNumber.trim() || phoneNumber.length !== 11 || isNaN(phoneNumber)) {
@@ -104,28 +109,25 @@ return (
 
      
       {/* HIGHEST QUALIFICATION SECTION */}
-      <div className="text-black text-lg font-semibold mt-2 max-sm:pb-2 max-sm:text-xs max-md:max-w-full">Highest Educational Qualification</div>
-
-      <div className="flex justify-between max-sm:pt-1.5 items-stretch border gap-0 px-6 h-[32px] rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap max-md:px-5" onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}>
-        <div className="flex justify-start text-black text-lg max-sm:text-xs grow max-md:max-w-full">{selectedHighestQualification || "Select most recent qualification"}</div>
-        <img
-          alt='down arrow'
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/4035bd7c4c31a69d81d69f1b668cbec517add3e495421449b948b0d2d0baf315?"
-          className="aspect-[2.22] object-contain object-center w-[22px] fill-black shrink-0 my-auto"
-          onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}
-        />
+      <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-full max-sm:mt-1 max-md:mt-2">
+        <div className="text-black text-lg font-semibold mt-2 max-sm:pb-2 max-sm:text-xs max-md:max-w-full">Highest Educational Qualification</div>
+          <div className='relative'>
+            <select
+              className="mt-2 px-6 h-[32px] border-solid w-full border border-[#2f8d47] rounded-md"
+              onClick={() => setIsHighestQualificationDropdownOpen(!isHighestQualificationDropdownOpen)}>
+              <option className={`max-sm:pt-2 grow max-sm:text-xs ${selectedHighestQualification ? 'text-black' : 'text-[#9ca3af] italic'}`}>{selectedHighestQualification || 'Select most recent qualification'}</option>
+            </select>
+            {isHighestQualificationDropdownOpen && (
+              <div className="absolute flex flex-col mt-2 max-sm:mt-1 w-full bg-[#ffffff] border border-solid border-[#2f8d47] rounded-md">
+                {eduQualificationOptions.map((option) => (
+                  <div key={option} className="p-2 cursor-pointer hover:bg-[#d1d5db]" onClick={() => handleHighestQualificationSelect(option)}>
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
       </div>
-
-      {isHighestQualificationDropdownOpen && (
-        <div className="flex flex-col mt-2 border border-solid border-green-700 rounded-md">
-          {eduQualificationOptions.map((option) => (
-            <div key={option} className="p-2 cursor-pointer hover:bg-gray-200" onClick={() => handleHighestQualificationSelect(option)}>
-              {option}
-            </div>
-          ))}
-        </div>
-      )}
 
        {/* Upload academic certificate */}
        <div className="text-black text-lg font-semibold max-sm:text-xs mt-2  max-sm:pb-2 max-md:max-w-full">Upload certificate</div>
