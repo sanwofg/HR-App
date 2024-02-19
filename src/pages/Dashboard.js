@@ -18,7 +18,7 @@ const Dashboard = ({openNav, close}) => {
 
   const labels = ["Jan", "Feb", "Mar", "Apr", "May"];
 
-const data = {
+  const data = {
   labels: labels,
   datasets: [
     {
@@ -209,15 +209,15 @@ const newTime = ()=>{
          
                        {/* Statistics */}
 
-        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1  mt-11 w-full ` }>
+        <div className={`flex max-md:flex-col gap-4 max-sm:items-center max-sm:grid-cols-1 ${openNav? '-ml-24': 'px-12'}  mt-11 w-full ` }>
 
 
                         {/* Bar chat */}
-          <div className={`flex flex-col ${openNav? 'max-sm:hiddenn': ''} w-[410px] h-[220px] max-sm:w-[250px]`}>
+          <div className={`flex flex-col ${openNav? 'max-sm:hiddenn': ''} w-[410px]  max-sm:w-[250px]`}>
             <div>
               <p className='font-semibold'> Hours Spent</p>
             </div>
-            <div className={` shadow pb-1 rounded-lg mt-4 `} >
+            <div className={` shadow h-auto pb-1 rounded-lg mt-4 `} >
               <Bar data={data} />
             </div>
           </div>

@@ -71,7 +71,7 @@ export default function StepFour() {
       </div>
 
       {/* Terms and Conditions Section */}
-      <div className="items-stretch flex pb-2 mt-4 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch flex py-4 mt-4 max-md:max-w-full max-md:flex-wrap">
         <input
           type="checkbox"
           className={`border ${
