@@ -144,8 +144,6 @@ export default function StepTwo() {
         setNINError("");
       }
 
-      // Move to the next step or perform other actions
-      // ...
     }
   };
 
@@ -161,7 +159,7 @@ export default function StepTwo() {
               </div>
               <input
                 className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-6 rounded-xl h-[32px] border-solid ${
-                  phoneNumberError ? "border-red-500" : " border-green-700"
+                  phoneNumberError ? "border-[#f44336]" : " border-green-700"
                 } items-start max-md:max-w-full max-md:px-5`}
                 type="number"
                 value={phoneNumber}

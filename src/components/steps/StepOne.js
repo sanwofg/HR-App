@@ -67,10 +67,10 @@ export default function StepOne() {
           <div className="mt-2 max-sm:mt-1 max-md:max-w-full ">
             <div className="gap-4 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-2 max-sm:mt-1">
-                <div className="text-black text-lg font-semibold max-md:max-w-full  max-sm:text-xs">Date of Birth</div>
+                <div className="text-black text-lg font-semibold max-md:max-w-full max-sm:text-xs">Date of Birth</div>
                 <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-6 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-5">
                   <div className="max-sm:pt-2 text-[#000000] text-lg grow max-sm:text-xs">{}
-                    <DatePicker selected={dob} onChange={setDob} placeholderText="MM/DD/YYYY" onBlur={() => handleBlur("dob", dob)} outline-none />
+                    <DatePicker selected={dob} onChange={setDob} placeholderText="MM/DD/YYYY" onBlur={() => handleBlur("dob", dob)} style={{ width: '100%'}} />
                   </div>
                 </div>
                 {dobError && <p className="text-[#ef4444] mt-1">{dobError}</p>}
@@ -130,13 +130,13 @@ export default function StepOne() {
                 </select>
             </div>
 
-            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl border-solid ${lgaError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}>
+            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl ${lgaError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}>
               <select
                 value={userData.lga}
                 onChange={(e) => setUserData({ ...userData, lga: e.target.value })}
                 name='lga'
                 className='text-[#000000] max-sm:text-xs text-lg grow'
-                style={{ color: userData.lga ? '#000000' : '#808080' }}
+                style={{color: userData.lga ? '#000000' : '#808080' }}
               >
                 <option style={{ color: '#000000' }} value='' disabled>Select LGA</option>
                 {userData.state &&
