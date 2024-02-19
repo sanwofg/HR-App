@@ -6,33 +6,34 @@ import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import SignUp from "./SignupPage";
 import RegistrationForm from "../components/RegistrationForm";
-// import SuccessPopUp from "../components/SuccessPopup";
+import EmailReset from "./EmailReset";
+import { Link } from "react-router-dom";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
   const [signup, setSignup] = useState(false);
   const [reg, setReg] = useState(false);
+  const [reset, setReset] = useState(false);
   const [success, setSuccess] = useState(false);
-
 
   const popsign = () => {
     setPopup(false);
     setReg(false);
-    setSuccess(false);
+    // setSuccess(false);
     setSignup(true);
   };
 
   const change = () => {
     setSignup(false);
     setReg(false);
-    setSuccess(false);
+    // setSuccess(false);
     setPopup(true);
   };
 
   const openReg = () => {
     setPopup(false);
     setSignup(false);
-    setSuccess(false);
+    // setSuccess(false);
     setReg(true);
   };
 
@@ -41,7 +42,13 @@ function Landing() {
     setSignup(false);
     setReg(false);
     setSuccess(true);
-  }
+  };
+
+  const resetEmail = () => {
+    setReset(true);
+    setPopup(false);
+    setSignup(false);
+  };
 
   const pop = () => {
     setTimeout(change, 3000);
@@ -70,7 +77,11 @@ function Landing() {
     <div className="h-screen flex flex-col items-center justify-around bg-[#0c7c3f] max-sm:w-screen">
       <div className="flex flex-col gap-16">
         <div className="flex justify-center">
-          <img src={logo} alt="" className="w-48 motion-safe:animate-spin" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-48 motion-safe:animate-spin"
+          />
         </div>
         <div>
           <h1 className="text-[white] font-normal text-4xl font-sans text-center">
@@ -125,28 +136,48 @@ function Landing() {
                 <p className="text-[#565872]">Remember me</p>
               </div>
 
-              <a href="" className="text-[#0c7c3f] font-bold">
+              <span
+                onClick={resetEmail}
+                className="text-[#0c7c3f] font-bold cursor-pointer"
+              >
                 Forgot password?
-              </a>
+              </span>
             </div>
           </div>
-          <div className="max-sm:ml-20">
-            <button className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[15.5rem]">
+          <div className="items-center">
+            {/* <Link to={"/dashboard"}> */}
+            <button
+              onClick={openSuccess}
+              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
+            >
               Login
             </button>
-            <p className="font-sans text-xl text-[#565872] text-center max-sm:mr-16">
-              or
-            </p>
-            <GoogleLogin
-              className="max-sm:w-[150px]"
-              width={"320px"}
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-            />
+            {/* </Link> */}
+            <p className="font-sans text-xl text-[#565872] text-center ">or</p>
+            <div className="max-sm:hidden">
+              <GoogleLogin
+                className=""
+                width={"320px"}
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
+            <div className="sm:hidden">
+              <GoogleLogin
+                className="max-sm:w-[150px]"
+                // width={"320px"}
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
           </div>
 
           <div className="flex flex-row justify-center gap-2 font-sans">
@@ -162,10 +193,9 @@ function Landing() {
           </div>
         </div>
       )}
-      {signup && <SignUp change={openReg} />}
-      {reg && <RegistrationForm change={openSuccess}/>}
-      {/* {success && <SuccessPopUp change={openSuccess}/>} */}
-      {/* <RegistrationForm /> */}
+      {signup && <SignUp change={change} />}
+      {success && <RegistrationForm />}
+      {reset && <EmailReset />}
     </div>
   );
 }
