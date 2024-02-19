@@ -49,7 +49,9 @@ function SignUp({ change }) {
               {...formik.getFieldProps("email")}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className="text-xs text-[red]">{formik.errors.email}</div>
+              <div className="text-xs text-[red] max-sm:ml-10">
+                {formik.errors.email}
+              </div>
             ) : null}
           </div>
           <div className="">
@@ -61,7 +63,9 @@ function SignUp({ change }) {
               {...formik.getFieldProps("password")}
             />
             {formik.touched.password && formik.errors.password ? (
-              <div className="text-xs text-[red]">{formik.errors.password}</div>
+              <div className="text-xs text-[red] max-sm:ml-10">
+                {formik.errors.password}
+              </div>
             ) : null}
           </div>
           <div>
@@ -73,7 +77,7 @@ function SignUp({ change }) {
               {...formik.getFieldProps("confirm_password")}
             />
             {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              <div className="text-xs text-[red]">
+              <div className="text-xs text-[red] max-sm:ml-10">
                 {formik.errors.confirmPassword}
               </div>
             ) : null}
