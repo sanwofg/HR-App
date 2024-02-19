@@ -283,6 +283,7 @@ function RegistrationForm() {
       {/* Navigation controls */}
       {currentStep !== steps.length && (
         <StepperControl
+          steps={steps}
           handleClick={handleClick}
           currentStep={currentStep}
           handleSubmit={handleSubmit}

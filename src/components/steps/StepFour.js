@@ -4,8 +4,8 @@ import { StepperContext } from "../../contexts/StepperContext";
 export default function StepFour() {
   const { userData, setUserData } = useContext(StepperContext);
 
-//   const [selectedHearAboutUs, setSelectedHearAboutUs] = useState("");
-//   const [isTermsChecked, setIsTermsChecked] = useState(false);
+  const [selectedHearAboutUs, setSelectedHearAboutUs] = useState("");
+  const [isTermsChecked, setIsTermsChecked] = useState(false);
 
   const [isHearAboutUsDropdownOpen, setIsHearAboutUsDropdownOpen] =
     useState(false);
