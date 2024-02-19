@@ -40,6 +40,7 @@ export default function StepFour() {
             onClick={() =>
               setIsHearAboutUsDropdownOpen(!isHearAboutUsDropdownOpen)
             }
+            style={{ color: selectedHearAboutUs ? '#000000' : '#808080'}}
           >
             <option
               className={`text-lg text-black grow max-sm:text-xs ${
@@ -65,13 +66,13 @@ export default function StepFour() {
         </div>
       </div>
 
-      <div className="flex justify-center text-black text-lg max-sm:text-xs max-sm:mt-2 font-light max-md:max-w-full">
+      <div className="flex justify-start text-black text-lg max-sm:text-xs max-sm:mt-2 mt-2 font-light text-start max-md:max-w-full">
         Information collected in this form will be used solely for the purpose
         of course enrollment.
       </div>
 
       {/* Terms and Conditions Section */}
-      <div className="items-stretch flex py-4 mt-4 max-md:max-w-full max-md:flex-wrap">
+      <div className="items-stretch flex py-4 mt-2 max-md:max-w-full max-md:flex-wrap">
         <input
           type="checkbox"
           className={`border ${
@@ -79,7 +80,7 @@ export default function StepFour() {
           } flex w-[30px] shrink-0 max-sm:h-[20px] h-[30px] flex-col my-auto border-solid border-green-700`}
           onClick={() => setIsTermsChecked(!isTermsChecked)}
         />
-        <p className="py-2 px-2 text-black text-lg max-sm:text-xs max-sm:mt-2 font-light grow max-md:max-w-full">
+        <p className="px-2 text-black text-lg max-sm:text-xs max-sm:mt-2 font-light grow max-md:max-w-full">
           I have read and agree to the terms and conditions.
         </p>
       </div>
