@@ -86,7 +86,9 @@ function Landing() {
         <div>
           <h1 className="text-[white] font-normal text-4xl font-sans text-center">
             Hello from <br /> <br />{" "}
-            <span className="font-bold font-asset">Naija 01</span>
+            <span className="font-bold font-asset max-sm:text-2xl">
+              Naija 01
+            </span>
           </h1>
         </div>
       </div>
