@@ -30,7 +30,7 @@ function SignUp({ change }) {
     },
   });
 
- return (
+  return (
     <div className="w-[25rem] h-[35rem] bg-[white] shadow-lg flex flex-col absolute justify-around items-center m-auto rounded-[10px] py-5 max-sm:w-[20rem]">
       <h1 className="text-2xl text-primary font-semibold font-asset">
         NAIJA 01
@@ -80,22 +80,45 @@ function SignUp({ change }) {
           </div>
         </form>
       </div>
-      <div className="max-sm:ml-20">
+      <div className="max-sm:mx-auto">
         {/* <Link to={"/registration"}> */}
-          <button
-            type="submit"
-            onClick={change}
-            className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-semibold rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-60"
-          >
-            Create account
-          </button>
+        <button
+          type="submit"
+          onClick={change}
+          className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[10rem]"
+        >
+          Create account
+        </button>
         {/* </Link> */}
-       
-        <p className="font-sans text-xl text-[#565872] text-center max-sm:mr-16">
+
+        <p className="font-sans text-xl text-[#565872] text-center max-sm:mx-auto">
           or
         </p>
-
-        <GoogleLogin
+        <div className="max-sm:hidden">
+          <GoogleLogin
+            className=""
+            width={"320px"}
+            onSuccess={(credentialResponse) => {
+              console.log(credentialResponse);
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
+        <div className="sm:hidden">
+          <GoogleLogin
+            className="max-sm:w-[200px]"
+            // width={"320px"}
+            onSuccess={(credentialResponse) => {
+              console.log(credentialResponse);
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
+        {/* <GoogleLogin
           width={"320px"}
           onSuccess={(credentialResponse) => {
             console.log(credentialResponse);
@@ -103,7 +126,7 @@ function SignUp({ change }) {
           onError={() => {
             console.log("Login Failed");
           }}
-        />
+        /> */}
       </div>
       <div className="flex flex-row justify-center gap-2">
         <p className="text-base text-[#565872]">Already have an account?</p>
@@ -115,7 +138,7 @@ function SignUp({ change }) {
         </span>
       </div>
     </div>
-  ); 
+  );
 }
 
 export default SignUp;

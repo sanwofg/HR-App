@@ -74,7 +74,7 @@ function Landing() {
   });
 
   return (
-    <div className="h-screen flex flex-col items-center justify-around bg-[#0c7c3f] max-sm:w-screen">
+    <div className="h-screen flex flex-col items-center justify-around bg-[#0c7c3f] max-sm:w-screen max-sm:h-screen">
       <div className="flex flex-col gap-16">
         <div className="flex justify-center">
           <img
@@ -150,7 +150,7 @@ function Landing() {
             {/* <Link to={"/dashboard"}> */}
             <button
               onClick={openSuccess}
-              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-[14px] font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
+              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[165px] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
             >
               Login
             </button>
@@ -170,7 +170,7 @@ function Landing() {
             </div>
             <div className="sm:hidden">
               <GoogleLogin
-                className="max-sm:w-[150px]"
+                className="max-sm:w-[200px]"
                 // width={"320px"}
                 onSuccess={(credentialResponse) => {
                   console.log(credentialResponse);
