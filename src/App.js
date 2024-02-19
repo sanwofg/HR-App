@@ -14,8 +14,8 @@ import LoginPage from "./EntryPoint/LoginPage";
 import LandingPage from "./EntryPoint/LandingPage";
 import GooglePage from "./EntryPoint/GooglePage";
 // import RegistrationForm from "./components/RegistrationForm";
-import UnsuccessfulPopUp from './components/UnsuccessfulPopup'
-import SuccessPopUp from "./components/SuccessPopUp";
+import UnsuccessfulPopUp from "./components/UnsuccessfulPopup";
+import SuccessPopUp from "./components/successpopup";
 
 function App() {
   const [openNav, setOpenNav] = useState(false);
@@ -27,9 +27,8 @@ function App() {
   };
 
   return (
-   
     <div className="bg-white">
-       <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
@@ -46,7 +45,10 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/assignment" element={<Assignment />} />
-                  <Route path="/courses" element={<Courses openNav={openNav} close={close} />} />
+                  <Route
+                    path="/courses"
+                    element={<Courses openNav={openNav} close={close} />}
+                  />
                   <Route path="/reports" element={<Reports />} />
                   <Route path="/settings" element={<Settings />} />
                 </Routes>

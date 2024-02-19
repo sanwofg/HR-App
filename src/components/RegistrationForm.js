@@ -208,8 +208,8 @@ import { StepperContext } from "../contexts/StepperContext";
 import StepOne from "./steps/StepOne";
 import StepTwo from "./steps/StepTwo";
 import StepThree from "./steps/StepThree";
-import Final from "./steps/Final";
 import StepFour from "./steps/StepFour";
+import Final from "./steps/Final";
 
 function RegistrationForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -283,9 +283,9 @@ function RegistrationForm() {
       {/* Navigation controls */}
       {currentStep !== steps.length && (
         <StepperControl
+          steps={steps}
           handleClick={handleClick}
           currentStep={currentStep}
-          steps={steps}
           handleSubmit={handleSubmit}
         />
       )}
@@ -294,3 +294,4 @@ function RegistrationForm() {
 }
 
 export default RegistrationForm;
+

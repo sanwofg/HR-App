@@ -144,8 +144,6 @@ export default function StepTwo() {
         setNINError("");
       }
 
-      // Move to the next step or perform other actions
-      // ...
     }
   };
 
@@ -161,7 +159,7 @@ export default function StepTwo() {
               </div>
               <input
                 className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-6 rounded-xl h-[32px] border-solid ${
-                  phoneNumberError ? "border-red-500" : " border-green-700"
+                  phoneNumberError ? "border-[#f44336]" : " border-[#388e3c]"
                 } items-start max-md:max-w-full max-md:px-5`}
                 type="number"
                 value={phoneNumber}
@@ -169,44 +167,45 @@ export default function StepTwo() {
                 placeholder="08012345678"
               />
               {phoneNumberError && (
-                <p className="text-red-500 mt-1">{phoneNumberError}</p>
+                <p className="text-[#f44336] mt-1">{phoneNumberError}</p>
               )}
             </div>
 
             <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-2 lg:w-1/2">
-              <div className="text-black text-lg font-semibold max-sm:text-xs max-md:max-w-full">
+              <div className="text-[#000000] text-lg font-semibold max-sm:text-xs max-md:max-w-full">
                 NIN
               </div>
               <input
-                className="text-black text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-6 rounded-xl h-[32px] border-solid border-green-700"
+                className="text-[#000000] text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-6 rounded-xl h-[32px] border-solid border-[#388e3c]"
                 type="number"
                 value={nin}
                 onChange={handleNINChange}
                 placeholder="Enter NIN"
               />
-              {ninError && <p className="text-red-500 mt-1">{ninError}</p>}
+              {ninError && <p className="text-[#f44336] mt-1">{ninError}</p>}
             </div>
           </div>
         </div>
 
         {/* HIGHEST QUALIFICATION SECTION */}
         <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-full max-sm:mt-1 max-md:mt-2">
-          <div className="text-black text-lg font-semibold mt-2 max-sm:pb-2 max-sm:text-xs max-md:max-w-full">
+          <div className="text-[#000000] text-lg font-semibold mt-2 max-sm:pb-2 max-sm:text-xs max-md:max-w-full">
             Highest Educational Qualification
           </div>
           <div className="relative">
             <select
-              className="mt-2 px-6 h-[32px] border-solid w-full border border-[#2f8d47] rounded-md"
+              className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
               onClick={() =>
                 setIsHighestQualificationDropdownOpen(
                   !isHighestQualificationDropdownOpen
                 )
               }
+              style={{ color: selectedHighestQualification ? '#000000' : '#808080' }}
             >
               <option
                 className={`max-sm:pt-2 grow max-sm:text-xs ${
                   selectedHighestQualification
-                    ? "text-black"
+                    ? "text-[#388e3c]"
                     : "text-[#9ca3af] italic"
                 }`}
               >
@@ -215,10 +214,9 @@ export default function StepTwo() {
               </option>
             </select>
             {isHighestQualificationDropdownOpen && (
-              <div className="absolute flex flex-col mt-2 max-sm:mt-1 w-full bg-[#ffffff] border border-solid border-[#2f8d47] rounded-md">
+              <div className="absolute flex flex-col mt-2 max-sm:mt-1 w-full bg-[#ffffff] border border-solid border-[#388e3c] rounded-md">
                 {eduQualificationOptions.map((option) => (
-                  <div
-                    key={option}
+                  <div key={option}
                     className="p-2 cursor-pointer hover:bg-[#d1d5db]"
                     onClick={() => handleHighestQualificationSelect(option)}
                   >
@@ -231,12 +229,12 @@ export default function StepTwo() {
         </div>
 
         {/* Upload academic certificate */}
-        <div className="text-black text-lg font-semibold max-sm:text-xs mt-2  max-sm:pb-2 max-md:max-w-full">
+        <div className="text-[#000000] text-lg font-semibold max-sm:text-xs mt-2  max-sm:pb-2 max-md:max-w-full">
           Upload certificate
         </div>
-        <div className="items-stretch border flex justify-between py-1 rounded-xl border-solid border-green-700 max-md:max-w-full max-md:flex-wrap">
+        <div className="items-stretch border flex justify-between py-1 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap">
           <input
-            className="text-black max-sm:text-xs text-start pl-2 text-lg grow my-auto max-md:max-w-full"
+            className="text-[#000000] max-sm:text-xs text-start pl-2 text-lg grow my-auto max-md:max-w-full"
             type="file"
           />
         </div>

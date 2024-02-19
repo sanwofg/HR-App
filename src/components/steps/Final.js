@@ -1,13 +1,24 @@
-import React from 'react'
-import image from "../Assets/mark.png"
+// 
+
+import React, { useContext } from 'react';
+import { StepperContext } from '../../contexts/StepperContext';
+import image from "../Assets/mark.png";
 
 export default function Final() {
+  const { userData } = useContext(StepperContext);
+
+  // Check if all form fields are filled
+  const isFormFilled = Object.values(userData).every(value => !!value);
+
+  if (!isFormFilled) {
+    return null; // Don't render the Final component if the form is not filled
+  }
+
   return (
     <div className='container md:mt-10'>
       <div className='flex flex-col items-center'>
         <div className='text-green-400'>
-          <img src={image} className='w-24 h-24' 
-          />
+          <img src={image} className='w-24 h-24' alt="Mark" />
         </div>
 
         <div className='mt-3 text-lg font-semibold uppercase text-green-500'>
@@ -25,8 +36,6 @@ export default function Final() {
         </a>
         
       </div>
-
     </div>
-  )
+  );
 }
-
