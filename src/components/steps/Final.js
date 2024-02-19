@@ -15,7 +15,7 @@ export default function Final() {
         </div>
         
         <div className='text-lg font-semibold text-gray-500 max-sm:text-xs'>
-          Your Account has been created.
+          Your registration was successful.
         </div>
 
         <a className='max-sm:mt-2 mt-2' href='/dashboard'>
