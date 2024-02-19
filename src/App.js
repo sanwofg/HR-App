@@ -17,6 +17,8 @@ import GooglePage from "./EntryPoint/GooglePage";
 import RegistrationForm from "./components/RegistrationForm";
 import UnsuccessfulPopUp from "./components/UnsuccessfulPopup";
 import SuccessPopUp from "./components/SuccessPopUp";
+import { StepperProvider } from './contexts/StepperContext';
+
 function App() {
   const [openNav, setOpenNav] = useState(true);
   const open = () => {
@@ -35,7 +37,9 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/google-signup" element={<GooglePage />} />
-          <Route path="/registration" element={<RegistrationForm />} />
+          <StepperProvider>
+            <Route path="/registration" element={<RegistrationForm />} />
+          </StepperProvider>
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
 
           {openNav && (
