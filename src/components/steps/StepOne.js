@@ -54,7 +54,7 @@ export default function StepOne() {
           <div className="text-[#000000] font-semibold text-lg max-md:max-w-full max-md:mt-2 max-sm:text-xs max-sm:mt-1">
             Full Name
             <input
-              className={`w-full items-center border flex shrink-0 h-[32px] py-2 flex-col max-md:max-w-full mt-2 pl-5 rounded-xl ${
+              className={`w-full items-center border flex shrink-0 h-[32px] py-2 flex-col max-sm:text-sm max-md:max-w-full mt-2 pl-5 rounded-xl ${
                 fullNameError
                   ? "border-[#f44336]"
                   : "border-solid border-[#388e3c]"

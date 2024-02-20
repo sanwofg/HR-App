@@ -15,7 +15,7 @@ export default function Final() {
   // }
 
   return (
-    <div className="container md:mt-10">
+    <div className="container md:mt-10 max-sm:mt-11">
       <div className="flex flex-col items-center">
         <div className="text-green-400">
           <img src={image} className="w-24 h-24" alt="Mark" />

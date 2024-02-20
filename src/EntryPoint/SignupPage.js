@@ -89,7 +89,7 @@ function SignUp({ change }) {
         <button
           type="submit"
           onClick={change}
-          className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[10rem]"
+          className="bg-[#0c7c3f] text-[white] h-12 w-[20rem] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 max-sm:w-[11.4rem]"
         >
           Create account
         </button>

@@ -74,7 +74,7 @@ function Landing() {
   });
 
   return (
-    <div className="h-screen flex flex-col items-center justify-around bg-[#0c7c3f] max-sm:w-screen max-sm:h-screen">
+    <div className="h-screen flex items-center justify-around bg-[#0c7c3f] max-sm:w-screen max-sm:h-screen">
       <div className="flex flex-col gap-16">
         <div className="flex justify-center">
           <img
@@ -94,7 +94,7 @@ function Landing() {
       </div>
 
       {popup && (
-        <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
+        <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center m-auto absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
           <h1 className="text-2xl text-primary font-semibold font-asset">
             NAIJA 01
           </h1>
@@ -150,7 +150,7 @@ function Landing() {
             {/* <Link to={"/dashboard"}> */}
             <button
               onClick={openSuccess}
-              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[165px] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
+              className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
             >
               Login
             </button>
