@@ -8,11 +8,11 @@ export default function Final() {
   const { userData } = useContext(StepperContext);
 
   // Check if all form fields are filled
-  const isFormFilled = Object.values(userData).every(value => !!value);
+  // const isFormFilled = Object.values(userData).every(value => !!value);
 
-  if (!isFormFilled) {
-    return null; // Don't render the Final component if the form is not filled
-  }
+  // if (!isFormFilled) {
+  //   return null; // Don't render the Final component if the form is not filled
+  // }
 
   return (
     <div className='container md:mt-10'>
