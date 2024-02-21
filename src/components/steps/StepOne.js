@@ -128,26 +128,29 @@ const handleDobChange =(e)=> {
           <div className="text-[#000000] font-semibold text-lg max-md:max-w-full max-md:mt-2 max-sm:text-xs max-sm:mt-1">
             Full Name
             <input
-              className={`w-full max-sm:text-xs items-center border flex shrink-0 h-[32px] py-2 flex-col max-md:max-w-full mt-2 pl-3 rounded-xl ${fullNameError ? 'border-[#f44336]' : 'border-solid border-[#388e3c]'}`}
+              className={`w-full max-sm:text-xs items-center font-thin border flex shrink-0 h-[32px] py-2 flex-col max-md:max-w-full mt-2 pl-3 rounded-xl ${fullNameError ? 'border-[#f44336]' : 'border-solid border-[#388e3c]'}`}
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               onBlur={() => handleBlur("fullName", fullName)}
               placeholder="Enter full name (as it appears in documents)"
-              style={{ fontWeight: 'lighter' }}
             />
             {fullNameError && <p className="text-[#f44336] max-sm:text-xs font-light mt-1">{fullNameError}</p>}
           </div>
 
-          <div className="mt-2 max-sm:mt-1 max-md:max-w-full ">
+          <div className="mt-2 max-sm:mt-1 max-md:max-w-full">
             <div className="gap-4 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-2 max-sm:mt-1">
                 <div className="text-black text-lg font-semibold max-md:max-w-full max-sm:text-xs">Date of Birth</div>
-                <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-6 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-5">
-                  <div className="max-sm:pt-2 text-[#000000] text-lg grow max-sm:text-xs">{}
-                    <DatePicker selected={dob} onChange={setDob} placeholderText="MM/DD/YYYY" onBlur={() => handleBlur("dob", dob)} style={{ fontWeight: 'thin'}} />
+                  <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-6 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                    <DatePicker 
+                    className="max-sm:pt-2 text-[#000000] text-lg font-thin focus:outline-none grow max-sm:text-xs"
+                    selected={dob} 
+                    onChange={setDob} 
+                    placeholderText="MM/DD/YYYY" 
+                    onBlur={() => handleBlur("dob", dob)} 
+                    />
                   </div>
-                </div>
                 {dobError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{dobError}</p>}
               </div>
 
@@ -161,7 +164,8 @@ const handleDobChange =(e)=> {
                       onBlur={() => handleBlur("gender", selectedGender)}
                       style={{ color: selectedGender ? '#000000' : '#808080' }}
                     >
-                      <option style={{ color: '#000000'}} value="" disabled>Select</option>
+                      <option style={{ color: '#000000', fontWeight: 'thin'}}
+                      value="" disabled>Select</option>
                       {genderOptions.map((option) => (
                         <option key={option} value={option}>{option}</option>
                       ))}
