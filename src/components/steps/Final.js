@@ -1,5 +1,3 @@
-// 
-
 import React, { useContext } from 'react';
 import { StepperContext } from '../../contexts/StepperContext';
 import image from "../Assets/mark.png";
@@ -7,12 +5,6 @@ import image from "../Assets/mark.png";
 export default function Final() {
   const { userData } = useContext(StepperContext);
 
-  // Check if all form fields are filled
-  // const isFormFilled = Object.values(userData).every(value => !!value);
-
-  // if (!isFormFilled) {
-  //   return null; // Don't render the Final component if the form is not filled
-  // }
 
   return (
     <div className='container md:mt-10'>

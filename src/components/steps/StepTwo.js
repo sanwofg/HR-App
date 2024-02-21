@@ -1,77 +1,3 @@
-// import { useState, useContext } from "react";
-// import { StepperContext } from "../../contexts/StepperContext";
-
-// export default function StepTwo() {
-//   const { userData, setUserData } = useContext(StepperContext);
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [nin, setNIN] = useState("");
-//   // const [certificateFile, setCertificateFile] = useState(null);
-
-//   const [selectedHighestQualification, setSelectedHighestQualification] =
-//     useState("");
-//   const [
-//     isHighestQualificationDropdownOpen,
-//     setIsHighestQualificationDropdownOpen,
-//   ] = useState(false);
-//   const eduQualificationOptions = [
-//     "SSCE",
-//     "Bachelor's Degree",
-//     "Master's Degree",
-//     "PhD",
-//   ];
-//   const [phoneNumberError, setPhoneNumberError] = useState("");
-//   const [ninError, setNINError] = useState("");
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setUserData({ ...userData, [name]: value });
-//   };
-
-//   const handleHighestQualificationSelect = (highestqualification) => {
-//     setSelectedHighestQualification(highestqualification);
-//     setIsHighestQualificationDropdownOpen(false);
-//   };
-
-//   const handlePhoneNumberChange = (e) => {
-//     const input = e.target.value;
-//     if (/^\d*$/.test(input) && input.length <= 11) {
-//       setPhoneNumber(input);
-//       setPhoneNumberError("");
-//     } else {
-//       setPhoneNumberError("11 digits are required.");
-//     }
-//   };
-
-//   const handleNINChange = (e) => {
-//     const input = e.target.value;
-//     if (/^\d*$/.test(input) && input.length <= 11) {
-//       setNIN(input);
-//       setNINError("");
-//     } else {
-//       setNINError("11 digits are required.");
-//     }
-//   };
-
-//   // const handleCertificateFileChange = (e) => {
-//   //   const file = e.target.files[0];
-//   //   setCertificateFile(file);
-//   // };
-
-//   //  // Validation logic for phone number
-//   if (!phoneNumber.trim() || phoneNumber.length !== 11 || isNaN(phoneNumber)) {
-//     setPhoneNumberError("Please enter a valid 11-digit phone number.");
-//     return;
-//   } else {
-//     setPhoneNumberError("");
-
-//     // Validation logic for NIN
-//     if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
-//       setNINError("Please enter a valid 11-digit NIN.");
-//       return;
-//     } else {
-//       setNINError("");
-//     }
-
 import React, { useState, useContext } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
 
@@ -124,28 +50,28 @@ export default function StepTwo() {
     }
   };
 
-  const handleNext = () => {
-    // Validation logic for phone number
-    if (
-      !phoneNumber.trim() ||
-      phoneNumber.length !== 11 ||
-      isNaN(phoneNumber)
-    ) {
-      setPhoneNumberError("Please enter a valid 11-digit phone number.");
-      return;
-    } else {
-      setPhoneNumberError("");
+  // const handleNext = () => {
+  //   // Validation logic for phone number
+  //   if (
+  //     !phoneNumber.trim() ||
+  //     phoneNumber.length !== 11 ||
+  //     isNaN(phoneNumber)
+  //   ) {
+  //     setPhoneNumberError("Please enter a valid 11-digit phone number.");
+  //     return;
+  //   } else {
+  //     setPhoneNumberError("");
 
-      // Validation logic for NIN
-      if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
-        setNINError("Please enter a valid 11-digit NIN.");
-        return;
-      } else {
-        setNINError("");
-      }
+  //     // Validation logic for NIN
+  //     if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
+  //       setNINError("Please enter a valid 11-digit NIN.");
+  //       return;
+  //     } else {
+  //       setNINError("");
+  //     }
 
-    }
-  };
+  //   }
+  // };
 
   return (
     <div className="flex flex-col">
