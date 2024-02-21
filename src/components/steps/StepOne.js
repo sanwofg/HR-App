@@ -135,14 +135,14 @@ const handleDobChange =(e)=> {
               onBlur={() => handleBlur("fullName", fullName)}
               placeholder="Enter full name (as it appears in documents)"
             />
-            {fullNameError && <p className="text-[#f44336] max-sm:text-xs font-light mt-1">{fullNameError}</p>}
+            {fullNameError && <p className="text-[#f44336] max-sm:text-xs font-light h-4 mt-1">{fullNameError}</p>}
           </div>
 
           <div className="mt-2 max-sm:mt-1 max-md:max-w-full">
             <div className="gap-4 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-2 max-sm:mt-1">
                 <div className="text-black text-lg font-semibold max-md:max-w-full max-sm:text-xs">Date of Birth</div>
-                  <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-6 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-5">
+                  <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-2 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-2">
                     <DatePicker 
                     className="max-sm:pt-2 text-[#000000] text-lg font-thin focus:outline-none grow max-sm:text-xs"
                     selected={dob} 
@@ -151,14 +151,14 @@ const handleDobChange =(e)=> {
                     onBlur={() => handleBlur("dob", dob)} 
                     />
                   </div>
-                {dobError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{dobError}</p>}
+                {dobError && <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">{dobError}</p>}
               </div>
 
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-sm:mt-1 max-md:mt-2">
                 <div className="text-[#000000] text-lg font-semibold max-md:max-w-full max-sm:text-xs">Gender</div>
                   <div className='relative'>
                     <select
-                      className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
+                      className="mt-2 px-2 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
                       value={selectedGender}
                       onChange={(e) => setSelectedGender(e.target.value)}
                       onBlur={() => handleBlur("gender", selectedGender)}
@@ -182,19 +182,19 @@ const handleDobChange =(e)=> {
           </div>
           <div className="items-stretch gap-5 mt-2 max-sm:mt-1 max-md:max-w-full max-md:flex-wrap">
             <input
-              className={`text-black text-lg w-full flex justify-center max-sm:text-xs items-stretch border grow px-6 h-[32px] rounded-xl border-solid ${addressError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:px-5`}
+              className={`text-black text-lg w-full flex justify-center max-sm:text-xs items-stretch border grow px-2 h-[32px] rounded-xl border-solid ${addressError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:px-2`}
               placeholder="Home Address"
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               onBlur={() => handleBlur("address", address)}
             />
-            {addressError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{addressError}</p>}
+            {addressError && <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">{addressError}</p>}
           </div>
 
           {/* LGA/State Field */}
           <div className="items-stretch max-sm:mt-1 flex justify-evenly gap-1.5 max-md:max-w-full mt-2 max-md:flex-wrap">
-            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl border-solid ${stateError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}>
+            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-2 w-full rounded-xl border-solid ${stateError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-2`}>
               <select
                 value={userData.state}
                 onChange={(e) => setUserData({ ...userData, state: e.target.value })}
@@ -207,11 +207,11 @@ const handleDobChange =(e)=> {
                     <option key={state.state} value={state.state}>{state.state}</option>
                   ))}
               </select>
-              {stateError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{stateError}</p>}
+              {stateError && <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">{stateError}</p>}
             </div>
           
 
-            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl ${lgaError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}>
+            <div className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-2 w-full rounded-xl ${lgaError ? 'border-[#ef4444]' : 'border-[#388e3c]'} max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-2`}>
               <select
                 value={userData.lga}
                 onChange={(e) => setUserData({ ...userData, lga: e.target.value })}
@@ -225,7 +225,7 @@ const handleDobChange =(e)=> {
                     <option key={lga} value={lga}>{lga}</option>
                   ))}
               </select>
-              {stateError && <p className="text-[#ef4444] max-sm:text-xs mt-1">{stateError}</p>}
+              {stateError && <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">{stateError}</p>}
 
             </div>
           </div>          

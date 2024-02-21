@@ -38,7 +38,7 @@ return (
         <div className="text-black text-lg font-semibold mt-2 max-sm:text-xs max-md:max-w-full">Supporting Documents</div>
         <div className="relative">
           <select
-            className="mt-2 px-6 h-[32px] border-solid w-full border border-[#2f8d47] rounded-md"
+            className="mt-2 px-2 h-[32px] border-solid w-full border border-[#2f8d47] rounded-md"
             onClick={() => setIsAvailableIdCardDropdownOpen(!isAvailableIdCardDropdownOpen)}
             style={{ color: selectedAvailableIdCard ? '#000000' : '#808080'}}>
             <option className={`max-sm:pt-2 grow max-sm:text-xs ${selectedAvailableIdCard ? 'text-black' : 'text-[#9ca3af] italic'}`}>{selectedAvailableIdCard || 'Select Available ID Card'}</option>
@@ -55,7 +55,7 @@ return (
         </div>
       </div>
       <div className="text-black text-lg font-semibold mt-2 max-sm:text-xs max-md:max-w-full">Upload ID Card</div>
-      <div className="items-stretch border flex flex-col px-2 rounded-xl mt-2 border-solid border-[#388e3c] max-md:max-w-full max-md:px-5">
+      <div className="items-stretch border flex flex-col px-2 rounded-xl mt-2 border-solid border-[#388e3c] max-md:max-w-full max-md:px-2">
         <form>
           {/* Upload front of selected ID Card */}
           <div className="text-black text-lg font-normal mt-2 max-sm:text-xs max-md:max-w-full">Upload front of selected ID Card</div>
@@ -78,7 +78,7 @@ return (
   <div className="text-[#000000] text-lg font-semibold mt-2 max-sm:text-xs max-md:max-w-full">Preferred Course</div>
   <div className='relative'>
     <select
-      className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-md"
+      className="mt-2 px-2 h-[32px] border-solid w-full border border-[#388e3c] rounded-md"
       onClick={() => setIsPreferredCourseDropdownOpen(!isPreferredCourseDropdownOpen)}
       style={{ color: selectedPreferredCourse ? '#000000' : '#808080' }}>
       <option className={`max-sm:pt-2 grow max-sm:text-xs ${selectedPreferredCourse ? 'text-[#000000]' : 'text-[#9ca3af] italic'}`}>{selectedPreferredCourse || 'Select preferred course'}</option>

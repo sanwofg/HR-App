@@ -50,29 +50,6 @@ export default function StepTwo() {
     }
   };
 
-  // const handleNext = () => {
-  //   // Validation logic for phone number
-  //   if (
-  //     !phoneNumber.trim() ||
-  //     phoneNumber.length !== 11 ||
-  //     isNaN(phoneNumber)
-  //   ) {
-  //     setPhoneNumberError("Please enter a valid 11-digit phone number.");
-  //     return;
-  //   } else {
-  //     setPhoneNumberError("");
-
-  //     // Validation logic for NIN
-  //     if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
-  //       setNINError("Please enter a valid 11-digit NIN.");
-  //       return;
-  //     } else {
-  //       setNINError("");
-  //     }
-
-  //   }
-  // };
-
   return (
     <div className="flex flex-col">
       <div className="w-full mx-2 flex-1">
@@ -84,9 +61,9 @@ export default function StepTwo() {
                 Phone Number
               </div>
               <input
-                className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-6 rounded-xl h-[32px] border-solid ${
+                className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-2 rounded-xl h-[32px] border-solid ${
                   phoneNumberError ? "border-[#f44336]" : " border-[#388e3c]"
-                } items-start max-md:max-w-full max-md:px-5`}
+                } items-start max-md:max-w-full max-md:px-2`}
                 type="number"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
@@ -102,7 +79,7 @@ export default function StepTwo() {
                 NIN
               </div>
               <input
-                className="text-[#000000] text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-6 rounded-xl h-[32px] border-solid border-[#388e3c]"
+                className="text-[#000000] text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-2 rounded-xl h-[32px] border-solid border-[#388e3c]"
                 type="number"
                 value={nin}
                 onChange={handleNINChange}
@@ -120,7 +97,7 @@ export default function StepTwo() {
           </div>
           <div className="relative">
             <select
-              className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
+              className="mt-2 px-2 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
               onClick={() =>
                 setIsHighestQualificationDropdownOpen(
                   !isHighestQualificationDropdownOpen
@@ -129,7 +106,7 @@ export default function StepTwo() {
               style={{ color: selectedHighestQualification ? '#000000' : '#808080' }}
             >
               <option
-                className={`max-sm:pt-2 grow max-sm:text-xs ${
+                className={`max-sm:pt-2 grow max-sm:text-xs text-sm ${
                   selectedHighestQualification
                     ? "text-[#388e3c]"
                     : "text-[#9ca3af] italic"
