@@ -37,7 +37,7 @@ export default function StepOne() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('your-backend-api-endpoint', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
