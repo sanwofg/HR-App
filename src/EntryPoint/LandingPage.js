@@ -7,7 +7,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import SignUp from "./SignupPage";
 import RegistrationForm from "../components/RegistrationForm";
 import EmailReset from "./EmailReset";
-import { Link } from "react-router-dom";
+// import Login from "./LoginPage";
+// import { Link } from "react-router-dom";
 
 function Landing() {
   const [popup, setPopup] = useState(false);
@@ -74,7 +75,7 @@ function Landing() {
   });
 
   return (
-    <div className="h-screen flex items-center justify-around bg-[#0c7c3f] max-sm:w-screen max-sm:h-screen">
+    <div className="h-screen w-full flex flex-col justify-around items-center bg-[#0c7c3f] max-sm:w-[100%] max-sm:h-screen max-sm:bottom-0 max-sm:">
       <div className="flex flex-col gap-16">
         <div className="flex justify-center">
           <img
@@ -94,7 +95,8 @@ function Landing() {
       </div>
 
       {popup && (
-        <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center m-auto absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
+        <div className="w-[25rem] h-[35rem] bg-[white] shadow-lg flex flex-col absolute justify-around items-center m-auto rounded-[10px] py-5 max-sm:w-[20rem]">
+          {/* // <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center m-auto absolute py-5 rounded-[10px] backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]"> */}
           <h1 className="text-2xl text-primary font-semibold font-asset">
             NAIJA 01
           </h1>
@@ -137,7 +139,6 @@ function Landing() {
                 <input type="checkbox" />
                 <p className="text-[#565872]">Remember me</p>
               </div>
-
               <span
                 onClick={resetEmail}
                 className="text-[#0c7c3f] font-bold cursor-pointer"
@@ -181,7 +182,6 @@ function Landing() {
               />
             </div>
           </div>
-
           <div className="flex flex-row justify-center gap-2 font-sans">
             <p className="text-[14px] text-[#565872]">
               Don't have an account yet?
