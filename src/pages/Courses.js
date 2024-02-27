@@ -65,7 +65,7 @@ const Courses = ({openNav}) => {
           </div>
 
           <div>
-            <p className='font-bold text-2xl'>636</p>
+            <p className='font-bold text-2xl'>626</p>
           </div>
         </div>
                     {/* Total Departments */}
