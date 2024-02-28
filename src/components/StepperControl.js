@@ -1,9 +1,10 @@
-const StepperControl = ({ handleClick, currentStep, steps }) => {
+const StepperControl = ({ handleSubmit, currentStep, steps }) => {
+  
   return (
     <div className="container flex justify-around m-1">
       {/* Back button */}
       <button
-        onClick={() => handleClick("back")}
+        onClick={() => handleSubmit("back")}
         className={`bg-[#ffffff] text-[#718096] uppercase py-2 px-8 rounded-xl font-thin 
     cursor-pointer border-2 border-[#8993a4] hover:bg-[#3e4e62] hover:text-[#ffffff] transition 
     duration-200 ease-in-out ${
@@ -15,7 +16,7 @@ const StepperControl = ({ handleClick, currentStep, steps }) => {
 
       {/* Next/Confirm button */}
       <button
-        onClick={() => handleClick("next")}
+        onClick={() => handleSubmit("next")}
         className="bg-[#4CAF50] text-[#ffffff] uppercase py-2 px-8 rounded-xl font-thin
   cursor-pointer hover:bg-[#3e4e62] hover:text-[#ffffff] transition 
   duration-200 ease-in-out"
