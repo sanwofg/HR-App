@@ -45,7 +45,7 @@ export default function StepTwo() {
     handleChange("selectedHighestQualification", highestqualification);
     setIsHighestQualificationDropdownOpen(false);
   };
-  
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setUploadedFile(file);
@@ -145,7 +145,7 @@ export default function StepTwo() {
             type="file"
             onChange={handleFileChange}
           />
-           {uploadedFile && <div>File uploaded: {uploadedFile.name}</div>}
+           {/* {uploadedFile && <div>File uploaded: {uploadedFile.name}</div>} */}
         </div>
       </div>
     </div>

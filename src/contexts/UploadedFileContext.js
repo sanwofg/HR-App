@@ -13,5 +13,10 @@ export const UploadedFileProvider = ({ children }) => {
 };
 
 export const useUploadedFile = () => {
-    return useContext(UploadedFileContext);
+  const context = useContext(UploadedFileContext);
+  if (!context) {
+    throw new Error('useUploadedFile must be used within a UploadedFileProvider');
+  }
+  return context;
+
   };

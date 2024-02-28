@@ -96,7 +96,7 @@ function RegistrationForm() {
   };
 
   return (
-  <UploadedFileProvider>
+  
     <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-[#ffffff] absolute max-sm:w-[20rem]">
       {/* Stepper */}
       <div className="container horizontal mt-2">
@@ -104,10 +104,13 @@ function RegistrationForm() {
       </div>
 
       {/* Display components */}
+
       <div className="my-2 p-6">
+      <UploadedFileProvider>
         <StepperContext.Provider value={{userData, setUserData, finalData, setFinalData}}>
           {displayStep(currentStep)}
         </StepperContext.Provider>
+      </UploadedFileProvider>
       </div>
 
       {/* Navigation controls */}
@@ -120,7 +123,7 @@ function RegistrationForm() {
         />
       )}
     </div>
-  </UploadedFileProvider>
+
   );
 }
 
