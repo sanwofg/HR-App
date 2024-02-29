@@ -79,7 +79,7 @@ function RegistrationForm() {
     if (currentStep === steps.length - 1) {
       if (isStepValid(userData)) {
         console.log(userData)
-        setCurrentStep(5);git 
+        setCurrentStep(5);
         return;
       } else {
         alert("Please fill in all fields before proceeding.");
