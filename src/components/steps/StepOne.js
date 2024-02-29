@@ -1,7 +1,5 @@
 import { useState, useContext } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
-// import { useState, useContext } from "react";
-// import { StepperContext } from "../../contexts/StepperContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import StatesAndLGAs from "./necessarydata.json";
@@ -48,7 +46,7 @@ export default function StepOne() {
   };
 
   const handleDobChange = (date) => {
-    setUserData({ ...userData, dob: date }); // Update userData with the selected date
+    setUserData({ ...userData, dob: date }); 
     setDobError("Invalid format");
   };
   return (
@@ -204,19 +202,22 @@ export default function StepOne() {
                 name="lga"
                 className="max-sm:flex max-sm:align-middle text-[#000000] font-thin focus:outline-none max-sm:text-xs text-lg grow"
                 style={{ color: userData.lga ? "#000000" : "#9ca3af" }}
+                disabled={!userData.state}
               >
                 <option style={{ color: "#000000" }} value="" disabled>
-                  Select State
+                  Select LGA
                 </option>
-                {StatesAndLGAs.map((state) => (
-                  <option key={state.state} value={state.state}>
-                    {state.state}
+                {userData.state && 
+                StatesAndLGAs.find((state) => state.state === userData.state)
+                .lgas.map((lga) => (
+                  <option key={lga} value={lga}>
+                    {lga}
                   </option>
                 ))}
               </select>
-              {stateError && (
+              {lgaError && (
                 <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">
-                  {stateError}
+                  {lgaError}
                 </p>
               )}
             </div>
