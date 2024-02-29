@@ -123,8 +123,7 @@ export default function StepTwo() {
             {isHighestQualificationDropdownOpen && (
               <div className="absolute flex flex-col mt-2 max-sm:mt-1 w-full bg-[#ffffff] border border-solid border-[#388e3c] rounded-md">
                 {eduQualificationOptions.map((option) => (
-                  <div key={option}
-                    className="p-2 cursor-pointer hover:bg-[#d1d5db]"
+                  <div key={option} className="p-2 cursor-pointer hover:bg-[#d1d5db]"
                     onClick={() => handleHighestQualificationSelect(option)}
                   >
                     {option}
@@ -143,9 +142,12 @@ export default function StepTwo() {
           <input
             className="text-[#000000] max-sm:text-xs text-start pl-2 text-lg grow my-auto max-md:max-w-full"
             type="file"
-            onChange={handleFileChange}
+            onChange={(e) => {
+              handleFileChange(e, setCertificateFile);
+              handleChange("certificateFile", e.target.value);
+            }}
           />
-           {/* {uploadedFile && <div>File uploaded: {uploadedFile.name}</div>} */}
+
         </div>
       </div>
     </div>

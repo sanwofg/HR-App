@@ -130,7 +130,7 @@ const handleDobChange =(date)=> {
                 value={userData.state}
                 onChange={(e) => setUserData({ ...userData, state: e.target.value })}
                 name='state'
-                className='text-[#000000] max-sm:text-xs text-lg grow'
+                className='max-sm:flex max-sm:align-middle text-[#000000] font-thin focus:outline-none max-sm:text-xs text-lg grow'
                 style={{ color: userData.state ? '#000000' : '#9ca3af' }}
                 >
                   <option style={{ color: '#000000' }} value='' disabled>Select State</option>
@@ -147,7 +147,7 @@ const handleDobChange =(date)=> {
                 value={userData.lga}
                 onChange={(e) => setUserData({ ...userData, lga: e.target.value })}
                 name='lga'
-                className='text-[#000000] max-sm:text-xs text-lg grow'
+                className='max-sm:flex max-sm:align-middle text-[#000000] font-thin focus:outline-none max-sm:text-xs text-lg grow'
                 style={{color: userData.lga ? '#000000' : '#9ca3af' }}
               >
                 <option style={{ color: '#000000' }} value='' disabled>Select LGA</option>

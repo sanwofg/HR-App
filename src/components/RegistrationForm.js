@@ -78,21 +78,23 @@ function RegistrationForm() {
   
     if (currentStep === steps.length - 1) {
       if (isStepValid(userData)) {
-        setCurrentStep("Complete");
+        console.log(userData)
+        setCurrentStep(5);
+        return;
       } else {
         alert("Please fill in all fields before proceeding.");
+        return;
       }
-    } else {
-      setCurrentStep(currentStep + 1);
     }
+    setCurrentStep (currentStep + 1)
  
-    if (currentStep === steps.length - 1) {
-      // alert ('Form submitted')
-      // RegisterUser(e);
-      console.log(userData)
-    } else {
-      setCurrentStep (currentStep + 1)
-    }
+    // if (currentStep === steps.length - 1) {
+    //   // alert ('Form submitted')
+    //   // RegisterUser(e);
+    //   console.log(userData)
+    // } else {
+    //   setCurrentStep (currentStep + 1)
+    // }
   };
 
   return (
