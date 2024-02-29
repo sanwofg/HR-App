@@ -1,90 +1,13 @@
-// import { useState, useContext } from "react";
-// import { StepperContext } from "../../contexts/StepperContext";
-
-// export default function StepTwo() {
-//   const { userData, setUserData } = useContext(StepperContext);
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [nin, setNIN] = useState("");
-//   // const [certificateFile, setCertificateFile] = useState(null);
-
-//   const [selectedHighestQualification, setSelectedHighestQualification] =
-//     useState("");
-//   const [
-//     isHighestQualificationDropdownOpen,
-//     setIsHighestQualificationDropdownOpen,
-//   ] = useState(false);
-//   const eduQualificationOptions = [
-//     "SSCE",
-//     "Bachelor's Degree",
-//     "Master's Degree",
-//     "PhD",
-//   ];
-//   const [phoneNumberError, setPhoneNumberError] = useState("");
-//   const [ninError, setNINError] = useState("");
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setUserData({ ...userData, [name]: value });
-//   };
-
-//   const handleHighestQualificationSelect = (highestqualification) => {
-//     setSelectedHighestQualification(highestqualification);
-//     setIsHighestQualificationDropdownOpen(false);
-//   };
-
-//   const handlePhoneNumberChange = (e) => {
-//     const input = e.target.value;
-//     if (/^\d*$/.test(input) && input.length <= 11) {
-//       setPhoneNumber(input);
-//       setPhoneNumberError("");
-//     } else {
-//       setPhoneNumberError("11 digits are required.");
-//     }
-//   };
-
-//   const handleNINChange = (e) => {
-//     const input = e.target.value;
-//     if (/^\d*$/.test(input) && input.length <= 11) {
-//       setNIN(input);
-//       setNINError("");
-//     } else {
-//       setNINError("11 digits are required.");
-//     }
-//   };
-
-//   // const handleCertificateFileChange = (e) => {
-//   //   const file = e.target.files[0];
-//   //   setCertificateFile(file);
-//   // };
-
-//   //  // Validation logic for phone number
-//   if (!phoneNumber.trim() || phoneNumber.length !== 11 || isNaN(phoneNumber)) {
-//     setPhoneNumberError("Please enter a valid 11-digit phone number.");
-//     return;
-//   } else {
-//     setPhoneNumberError("");
-
-//     // Validation logic for NIN
-//     if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
-//       setNINError("Please enter a valid 11-digit NIN.");
-//       return;
-//     } else {
-//       setNINError("");
-//     }
-
 import React, { useState, useContext } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
+import { useUploadedFile } from '../../contexts/UploadedFileContext';
 
 export default function StepTwo() {
   const { userData, setUserData } = useContext(StepperContext);
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [nin, setNIN] = useState("");
-  const [selectedHighestQualification, setSelectedHighestQualification] =
-    useState("");
-  const [
-    isHighestQualificationDropdownOpen,
-    setIsHighestQualificationDropdownOpen,
-  ] = useState(false);
+  const [certificateFile, setCertificateFile] = useState(null); 
+  const [isHighestQualificationDropdownOpen, setIsHighestQualificationDropdownOpen] = useState(false);
+  const { uploadedFile, setUploadedFile } = useUploadedFile();
+
   const eduQualificationOptions = [
     "SSCE",
     "Bachelor's Degree",
@@ -94,20 +17,14 @@ export default function StepTwo() {
   const [phoneNumberError, setPhoneNumberError] = useState("");
   const [ninError, setNINError] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
-
-  const handleHighestQualificationSelect = (highestqualification) => {
-    setSelectedHighestQualification(highestqualification);
-    setIsHighestQualificationDropdownOpen(false);
+  const handleChange = (field, value) => {
+    setUserData({ ...userData, [field]: value });
   };
 
   const handlePhoneNumberChange = (e) => {
     const input = e.target.value;
     if (/^\d*$/.test(input) && input.length <= 11) {
-      setPhoneNumber(input);
+      handleChange("phoneNumber", input);
       setPhoneNumberError("");
     } else {
       setPhoneNumberError("11 digits are required.");
@@ -117,39 +34,28 @@ export default function StepTwo() {
   const handleNINChange = (e) => {
     const input = e.target.value;
     if (/^\d*$/.test(input) && input.length <= 11) {
-      setNIN(input);
+      handleChange("nin", input);
       setNINError("");
     } else {
       setNINError("11 digits are required.");
     }
   };
 
-  const handleNext = () => {
-    // Validation logic for phone number
-    if (
-      !phoneNumber.trim() ||
-      phoneNumber.length !== 11 ||
-      isNaN(phoneNumber)
-    ) {
-      setPhoneNumberError("Please enter a valid 11-digit phone number.");
-      return;
-    } else {
-      setPhoneNumberError("");
-
-      // Validation logic for NIN
-      if (!nin.trim() || nin.length !== 11 || isNaN(nin)) {
-        setNINError("Please enter a valid 11-digit NIN.");
-        return;
-      } else {
-        setNINError("");
-      }
-
-    }
+  const handleHighestQualificationSelect = (highestqualification) => {
+    handleChange("selectedHighestQualification", highestqualification);
+    setIsHighestQualificationDropdownOpen(false);
   };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setUploadedFile(file);
+  };
+
 
   return (
     <div className="flex flex-col">
       <div className="w-full mx-2 flex-1">
+        
         {/* Phone Number & NIN Section*/}
         <div className="mt-2 max-md:max-w-full">
           <div className="flex max-md:flex-col gap-4 max-md:items-stretch max-md:gap-0">
@@ -158,11 +64,11 @@ export default function StepTwo() {
                 Phone Number
               </div>
               <input
-                className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-6 rounded-xl h-[32px] border-solid ${
+                className={`text-black text-lg max-sm:text-xs justify-center border mt-2 pl-2 rounded-xl h-[32px] border-solid ${
                   phoneNumberError ? "border-[#f44336]" : " border-[#388e3c]"
-                } items-start max-md:max-w-full max-md:px-5`}
+                } items-start max-md:max-w-full max-md:px-2`}
                 type="number"
-                value={phoneNumber}
+                value={userData.phoneNumber || ""}
                 onChange={handlePhoneNumberChange}
                 placeholder="08012345678"
               />
@@ -176,9 +82,9 @@ export default function StepTwo() {
                 NIN
               </div>
               <input
-                className="text-[#000000] text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-6 rounded-xl h-[32px] border-solid border-[#388e3c]"
+                className="text-[#000000] text-lg max-sm:text-xs justify-center border mt-2 max-sm:pr-6 pl-2 rounded-xl h-[32px] border-solid border-[#388e3c]"
                 type="number"
-                value={nin}
+                value={userData.nin || ""}
                 onChange={handleNINChange}
                 placeholder="Enter NIN"
               />
@@ -194,30 +100,30 @@ export default function StepTwo() {
           </div>
           <div className="relative">
             <select
-              className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
+              className="mt-2 px-2 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
+              value={userData.selectedHighestQualification}
+              onChange={(e) => handleChange("selectedHighestQualification", e.target.value)}
               onClick={() =>
                 setIsHighestQualificationDropdownOpen(
                   !isHighestQualificationDropdownOpen
                 )
               }
-              style={{ color: selectedHighestQualification ? '#000000' : '#808080' }}
+              style={{ color: userData.selectedHighestQualification ? '#000000' : '#808080' }}
             >
               <option
-                className={`max-sm:pt-2 grow max-sm:text-xs ${
-                  selectedHighestQualification
+                className={`max-sm:pt-2 grow max-sm:text-xs text-sm ${
+                  userData.selectedHighestQualification
                     ? "text-[#388e3c]"
                     : "text-[#9ca3af] italic"
                 }`}
               >
-                {selectedHighestQualification ||
-                  "Select most recent qualification"}
+                {userData.selectedHighestQualification || "Select most recent qualification"}
               </option>
             </select>
             {isHighestQualificationDropdownOpen && (
               <div className="absolute flex flex-col mt-2 max-sm:mt-1 w-full bg-[#ffffff] border border-solid border-[#388e3c] rounded-md">
                 {eduQualificationOptions.map((option) => (
-                  <div key={option}
-                    className="p-2 cursor-pointer hover:bg-[#d1d5db]"
+                  <div key={option} className="p-2 cursor-pointer hover:bg-[#d1d5db]"
                     onClick={() => handleHighestQualificationSelect(option)}
                   >
                     {option}
@@ -236,7 +142,12 @@ export default function StepTwo() {
           <input
             className="text-[#000000] max-sm:text-xs text-start pl-2 text-lg grow my-auto max-md:max-w-full"
             type="file"
+            onChange={(e) => {
+              handleFileChange(e, setCertificateFile);
+              handleChange("certificateFile", e.target.value);
+            }}
           />
+
         </div>
       </div>
     </div>

@@ -1,9 +1,3 @@
-// import {createContext} from "react";
-
-// export const StepperContext = createContext(null);
-
-
-// StepperContext.js
 import React, { createContext, useState } from 'react';
 
 export const StepperContext = createContext();

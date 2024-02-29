@@ -1,18 +1,14 @@
 import { useState, useContext } from "react";
 import { StepperContext } from "../../contexts/StepperContext";
+// import { useState, useContext } from "react";
+// import { StepperContext } from "../../contexts/StepperContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import StatesAndLGAs from "./necessarydata.json";
 
 export default function StepOne() {
-  const { userData, setUserData, setCurrentStep, totalSteps } =
-    useContext(StepperContext);
-
-  const [fullName, setFullName] = useState("");
-  const [dob, setDob] = useState(null);
-  const [selectedGender, setSelectedGender] = useState("");
+  const { userData, setUserData } = useContext(StepperContext);
   const [genderOptions] = useState(["Male", "Female"]);
-  const [address, setAddress] = useState("");
 
   // Error states
   const [fullNameError, setFullNameError] = useState("");
@@ -47,6 +43,14 @@ export default function StepOne() {
     }
   };
 
+  const handleChange = (field, value) => {
+    setUserData({ ...userData, [field]: value });
+  };
+
+  const handleDobChange = (date) => {
+    setUserData({ ...userData, dob: date }); // Update userData with the selected date
+    setDobError("Invalid format");
+  };
   return (
     <div className="flex flex-col">
       <div className="container mx-auto px-4 lg:px-0 bg-[#ffffff]">
@@ -54,44 +58,44 @@ export default function StepOne() {
           <div className="text-[#000000] font-semibold text-lg max-md:max-w-full max-md:mt-2 max-sm:text-xs max-sm:mt-1">
             Full Name
             <input
-              className={`w-full items-center border flex shrink-0 h-[32px] py-2 flex-col max-sm:text-sm max-md:max-w-full mt-2 pl-5 rounded-xl ${
+              className={`w-full max-sm:text-xs items-center font-thin border flex shrink-0 h-[32px] py-2 flex-col max-md:max-w-full mt-2 pl-3 rounded-xl ${
                 fullNameError
                   ? "border-[#f44336]"
                   : "border-solid border-[#388e3c]"
               }`}
               type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              onBlur={() => handleBlur("fullName", fullName)}
-              placeholder="Enter your full name (as it appears in your documents)"
-              style={{ fontWeight: "lighter" }}
+              value={userData.fullName}
+              onChange={(e) => handleChange("fullName", e.target.value)}
+              onBlur={() => handleBlur("fullName", userData.fullName)}
+              placeholder="Enter full name (as it appears in documents)"
             />
             {fullNameError && (
-              <p className="text-[#f44336] max-sm:text-xs mt-1">
+              <p className="text-[#f44336] max-sm:text-xs font-light h-4 mt-1">
                 {fullNameError}
               </p>
             )}
           </div>
 
-          <div className="mt-2 max-sm:mt-1 max-md:max-w-full ">
+          <div className="mt-2 max-sm:mt-1 max-md:max-w-full">
             <div className="gap-4 flex max-md:flex-col max-md:items-stretch max-md:gap-0 ">
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-md:mt-2 max-sm:mt-1">
                 <div className="text-black text-lg font-semibold max-md:max-w-full max-sm:text-xs">
                   Date of Birth
                 </div>
-                <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-6 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-5">
-                  <div className="max-sm:pt-2 text-[#000000] text-lg grow max-sm:text-xs">
-                    {}
-                    <DatePicker
-                      selected={dob}
-                      onChange={setDob}
-                      placeholderText="MM/DD/YYYY"
-                      onBlur={() => handleBlur("dob", dob)}
-                      style={{ fontWeight: "thin" }}
-                    />
-                  </div>
+                <div className="items-stretch border flex justify-between h-[32px] gap-0 mt-2 px-2 rounded-xl border-solid border-[#388e3c] max-md:max-w-full max-md:flex-wrap max-md:px-2">
+                  <DatePicker
+                    className="max-sm:pt-2 text-[#000000] text-lg font-thin focus:outline-none grow max-sm:text-xs"
+                    selected={userData.dob}
+                    onChange={handleDobChange}
+                    placeholderText="MM/DD/YYYY"
+                    onBlur={() => handleBlur("dob", userData.dob)}
+                  />
                 </div>
-                {dobError && <p className="text-[#ef4444] mt-1">{dobError}</p>}
+                {dobError && (
+                  <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">
+                    {dobError}
+                  </p>
+                )}
               </div>
 
               <div className="items-stretch grow flex flex-col max-md:max-w-full lg:w-1/2 max-sm:mt-1 max-md:mt-2">
@@ -100,13 +104,21 @@ export default function StepOne() {
                 </div>
                 <div className="relative">
                   <select
-                    className="mt-2 px-6 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
-                    value={selectedGender}
-                    onChange={(e) => setSelectedGender(e.target.value)}
-                    onBlur={() => handleBlur("gender", selectedGender)}
-                    style={{ color: selectedGender ? "#000000" : "#808080" }}
+                    className="mt-2 px-2 h-[32px] border-solid w-full border border-[#388e3c] rounded-xl"
+                    value={userData.selectedGender}
+                    onChange={(e) =>
+                      handleChange("selectedGender", e.target.value)
+                    }
+                    onBlur={() => handleBlur("gender", userData.selectedGender)}
+                    style={{
+                      color: userData.selectedGender ? "#000000" : "#808080",
+                    }}
                   >
-                    <option style={{ color: "#000000" }} value="" disabled>
+                    <option
+                      style={{ color: "#000000", fontWeight: "thin" }}
+                      value=""
+                      disabled
+                    >
                       Select
                     </option>
                     {genderOptions.map((option) => (
@@ -129,19 +141,19 @@ export default function StepOne() {
           <div className="text-black text-lg max-sm:mt-1 font-semibold max-sm:text-xs mt-2 max-md:max-w-full">
             Contact Address
           </div>
-          <div className="items-stretch flex justify-between gap-5 mt-2 max-sm:mt-1 max-md:max-w-full max-md:flex-wrap">
+          <div className="items-stretch gap-5 mt-2 max-sm:mt-1 max-md:max-w-full max-md:flex-wrap">
             <input
-              className={`text-black text-lg justify-center max-sm:text-xs items-stretch border grow px-6 h-[32px] rounded-xl border-solid ${
+              className={`text-black text-lg w-full flex justify-center max-sm:text-xs items-stretch border grow px-2 h-[32px] rounded-xl border-solid ${
                 addressError ? "border-[#ef4444]" : "border-[#388e3c]"
-              } max-md:max-w-full max-md:px-5`}
+              } max-md:max-w-full max-md:px-2`}
               placeholder="Home Address"
               type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              onBlur={() => handleBlur("address", address)}
+              value={userData.address}
+              onChange={(e) => handleChange("address", e.target.value)}
+              onBlur={() => handleBlur("address", userData.address)}
             />
             {addressError && (
-              <p className="text-[#ef4444] max-sm:text-xs mt-1">
+              <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">
                 {addressError}
               </p>
             )}
@@ -150,9 +162,9 @@ export default function StepOne() {
           {/* LGA/State Field */}
           <div className="items-stretch max-sm:mt-1 flex justify-evenly gap-1.5 max-md:max-w-full mt-2 max-md:flex-wrap">
             <div
-              className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl border-solid ${
+              className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-2 w-full rounded-xl border-solid ${
                 stateError ? "border-[#ef4444]" : "border-[#388e3c]"
-              } max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}
+              } max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-2`}
             >
               <select
                 value={userData.state}
@@ -160,7 +172,7 @@ export default function StepOne() {
                   setUserData({ ...userData, state: e.target.value })
                 }
                 name="state"
-                className="text-[#000000] max-sm:text-xs text-lg grow"
+                className="max-sm:flex max-sm:align-middle text-[#000000] font-thin focus:outline-none max-sm:text-xs text-lg grow"
                 style={{ color: userData.state ? "#000000" : "#9ca3af" }}
               >
                 <option style={{ color: "#000000" }} value="" disabled>
@@ -172,12 +184,17 @@ export default function StepOne() {
                   </option>
                 ))}
               </select>
+              {stateError && (
+                <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">
+                  {stateError}
+                </p>
+              )}
             </div>
 
             <div
-              className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-6 w-full rounded-xl ${
+              className={`flex items-stretch border max-sm:mt-1 justify-between max-sm:text-xs h-[32px] mt-2 px-2 w-full rounded-xl ${
                 lgaError ? "border-[#ef4444]" : "border-[#388e3c]"
-              } max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-5`}
+              } max-md:max-w-full max-md:flex-wrap lg:w-1/2 max-md:px-2`}
             >
               <select
                 value={userData.lga}
@@ -185,21 +202,23 @@ export default function StepOne() {
                   setUserData({ ...userData, lga: e.target.value })
                 }
                 name="lga"
-                className="text-[#000000] max-sm:text-xs text-lg grow"
+                className="max-sm:flex max-sm:align-middle text-[#000000] font-thin focus:outline-none max-sm:text-xs text-lg grow"
                 style={{ color: userData.lga ? "#000000" : "#9ca3af" }}
               >
                 <option style={{ color: "#000000" }} value="" disabled>
-                  Select LGA
+                  Select State
                 </option>
-                {userData.state &&
-                  StatesAndLGAs.find(
-                    (state) => state.state === userData.state
-                  )?.lgas.map((lga) => (
-                    <option key={lga} value={lga}>
-                      {lga}
-                    </option>
-                  ))}
+                {StatesAndLGAs.map((state) => (
+                  <option key={state.state} value={state.state}>
+                    {state.state}
+                  </option>
+                ))}
               </select>
+              {stateError && (
+                <p className="text-[#ef4444] max-sm:text-xs h-4 mt-1">
+                  {stateError}
+                </p>
+              )}
             </div>
           </div>
         </div>
