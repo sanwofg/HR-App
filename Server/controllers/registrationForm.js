@@ -1,4 +1,4 @@
-const { registration } = require("../models/registerationSchema");
+const { registration } = require("../models/registrationSchema");
 const { registrationJoi } = require("../validators/joiValidation");
 
 const registerUser = async (req, res) => {
@@ -21,9 +21,14 @@ const registerUser = async (req, res) => {
       phoneNumber: req.body.phoneNumber,
       nin: req.body.nin,
       // certificateFile: certificateFile[0].path,
-      educationalQualification: req.body.educationalQualification,
-      // idCard: idCard[0].path,
-      preferredCourse: req.body.preferredCourse,
+      selectedHighestQualification: req.body.selectedHighestQualification,
+      selectedAvailableIdCard: req.body.selectedAvailableIdCard,
+      // idCardFront: idCard[0].path,
+       // idCardBack: idCard[0].path,
+      selectedPreferredCourse: req.body.selectedPreferredCourse,
+      selectedHearAboutUs: req.body.selectedHearAboutUs,
+      // isTermsChecked: req.body.isTermsChecked
+
     });
 
     await newRegistration.save();

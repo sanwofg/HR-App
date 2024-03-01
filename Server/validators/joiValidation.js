@@ -117,7 +117,7 @@ const registrationJoi = (data) => {
       .positive()
       .min(1800)
       .max(2060),
-    selectGender: Joi.string()
+    selectedGender: Joi.string()
       .required()
       .valid("Male", "Female")
       .trim()
@@ -155,7 +155,7 @@ const registrationJoi = (data) => {
       "string.required": `"NIN" is required`,
     }),
     certificateFile: Joi.string().uri().trim(),
-    educationalQualification: Joi.string()
+    selectedHighestQualification: Joi.string()
       .required()
       .trim()
       .valid("SSCE", "Bachelor's Degree", "Master's Degree", "PhD")
@@ -163,7 +163,7 @@ const registrationJoi = (data) => {
         "any.only": `"Educational Qualification" must be one of the following: SSCE, Bachelor's Degree, Master's Degree, PhD`,
         "string.empty": `Educational Qualification must be selected`,
       }),
-    idCard: Joi.string()
+    selectedAvailableIdCard: Joi.string()
       .uri()
       .trim()
       .valid(
@@ -172,7 +172,9 @@ const registrationJoi = (data) => {
         "National ID Card",
         "Permanent Voter's Card"
       ),
-    preferredCourse: Joi.string()
+    idCardFront: Joi.string().uri().trim(),
+    idCardBack: Joi.string().uri().trim(),
+    selectedPreferredCourse: Joi.string()
       .required()
       .trim()
       .valid(
@@ -182,7 +184,7 @@ const registrationJoi = (data) => {
         "UI/UX Design",
         "Machine Learning/Automation"
       ),
-    howDidYouHearAboutUs: Joi.string()
+    selectedHearAboutUs: Joi.string()
       .required()
       .trim()
       .valid("Social Media", "Internet Ad", "Friend/Colleague", "Other Means"),
