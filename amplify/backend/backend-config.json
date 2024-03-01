@@ -1,0 +1,44 @@
+{
+  "api": {
+    "api7ddb3a8e": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "hrappda61407e"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "hrappda61407e": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_hrappda61407e_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "hrappda61407e"
+        }
+      ]
+    },
+    "AMPLIFY_function_hrappda61407e_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "hrappda61407e"
+        }
+      ]
+    }
+  }
+}
