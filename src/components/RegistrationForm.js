@@ -21,6 +21,7 @@ function RegistrationForm() {
     lga: "",
     phoneNumber: "",
     nin: "",
+    certificateFile: "",
     selectedHighestQualification:"",
     selectedAvailableIdCard: "",
     idCardFront: "",

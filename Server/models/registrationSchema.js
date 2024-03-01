@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const resgistrationSchema = new mongoose.Schema({
+const registrationSchema = new mongoose.Schema({
   agentId: {
     type: mongoose.Schema.Types.objectId,
     ref: "user",
@@ -42,16 +42,16 @@ const resgistrationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  educationalQualification: {
-    type: String,
-    enum: ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"],
-    required: true,
-  },
   certificateFile: {
     type: String,
     required: true,
   },
-  idCard: {
+  selectedHighestQualification: {
+    type: String,
+    enum: ["SSCE", "Bachelor's Degree", "Master's Degree", "PhD"],
+    required: true,
+  },
+  selectedAvailableIdCard: {
     type: String,
     enum: [
       "Passport",
@@ -61,7 +61,15 @@ const resgistrationSchema = new mongoose.Schema({
     ],
     required: true,
   },
-  preferredCourse: {
+  idCardFront: {
+    type: String,
+    required: true,
+  },
+  idCardBack: {
+    type: String,
+    required: true,
+  },
+  selectedPreferredCourse: {
     type: String,
     enum: [
       "Software Development/Testing",
@@ -72,13 +80,17 @@ const resgistrationSchema = new mongoose.Schema({
     ],
     required: true,
   },
-  howDidYouHearAboutUs: {
+  selectedHearAboutUs: {
     type: String,
     enum: ["Social Media", "Internet Ad", "Friend/Colleague", "Other Means"],
+  },
+  isTermsChecked: {
+    type: Boolean,
+    required: true,
   },
 });
 
 module.exports.registrationForm = mongoose.model(
   "registration",
-  resgistrationSchema
+  registrationSchema
 );
