@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const registrationSchema = new mongoose.Schema({
-  agentId: {
-    type: mongoose.Schema.Types.objectId,
-    ref: "user",
-  },
+  // agentId: {
+  //   type: mongoose.Schema.Types.objectId,
+  //   ref: "user",
+  // },
   fullName: {
     type: String,
     required: true,

@@ -16,7 +16,9 @@
         "hrappda61407e": {
           "deploymentBucketName": "amplify-amplifyd5a8d7cb65524-staging-103859-deployment",
           "s3Key": "amplify-builds/hrappda61407e-676354524f4b67306b39-build.zip"
-        }
+        },
+        "hrapp31767be1": {},
+        "hrappaee407d5": {}
       },
       "api": {
         "api7ddb3a8e": {}

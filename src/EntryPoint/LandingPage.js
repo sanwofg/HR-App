@@ -150,7 +150,7 @@ function Landing() {
           <div className="items-center">
             {/* <Link to={"/dashboard"}> */}
             <button
-              onClick={openSuccess}
+              // onClick={openSuccess}
               className="bg-[#0c7c3f] text-[white] h-10 w-[20rem] max-sm:w-[180px] text-xl font-medium rounded font-[serif] cursor-pointer border-[1px] border-[#d2dbef] hover:bg-[#d2dbef] hover:text-[black] hover:bg-opacity-15 "
             >
               Login

@@ -1,16 +1,16 @@
 const express = require("express");
-const signup = require("../controllers/signUp");
-const login = require("../controllers/login");
-const email = require("../controllers/emailReset");
-const resetPassword = require("../controllers/resetPassword");
-const registrationForm = require("../controllers/registrationForm")
+const signUpController = require("../controllers/signUp");
+const loginController = require("../controllers/login");
+const emailController = require("../controllers/emailReset");
+const resetPasswordController = require("../controllers/resetPassword");
+const registrationFormController = require("../controllers/registrationForm");
 
 const route = express.Router();
 
-route.post("/api/users", signup);
-route.post("/api/login", login);
-route.post("/api/email", email);
-route.put("/api/resetPassword", resetPassword);
-route.post("/api/registration", registrationForm);
+route.post("/api/users", signUpController.handler);
+route.post("/api/login", loginController.handler);
+route.post("/api/email", emailController.handler);
+route.put("/api/resetPassword", resetPasswordController.handler);
+route.post("/api/registration", registrationFormController.handler);
 
 module.exports = route;
