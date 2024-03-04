@@ -16,6 +16,7 @@ import GooglePage from "./EntryPoint/GooglePage";
 // import RegistrationForm from "./components/RegistrationForm";
 import UnsuccessfulPopUp from "./components/UnsuccessfulPopup";
 // import SuccessPopUp from "./components/successpopup";
+import EmailAuthenticator from "./EntryPoint/EmailAuthenticator";
 
 function App() {
   const [openNav, setOpenNav] = useState(false);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/google-signup" element={<GooglePage />} />
+          <Route path="/email-verifacation/:tokens" element={<EmailAuthenticator />} />
           {/* <Route path="/registration" element={<RegistrationForm />} /> */}
           {/* <Route path="/successfulreg" element={<SuccessPopUp />} /> */}
           <Route path="/unsuccessfulreg" element={<UnsuccessfulPopUp />} />
