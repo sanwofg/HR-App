@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white">
+    <div>
       <BrowserRouter>
         <Routes>
           {/* Public Routes */}

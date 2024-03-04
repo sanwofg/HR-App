@@ -21,7 +21,7 @@ function Login({ popsign }) {
   });
 
   return (
-    <div className="w-[25rem] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center absolute py-5 rounded-[10px]  backdrop-blur-3xl backdrop-brightness-150 max-sm:w-[20rem]">
+    <div className="w-[85%] h-[35rem] shadow-2xl bg-[white] flex flex-col justify-around items-center absolute py-5 rounded-[10px]  backdrop-blur-3xl backdrop-brightness-150 max-sm:top-12 max-sm:left-7">
       <h1 className="text-2xl text-primary font-semibold font-asset">
         NAIJA 01
       </h1>
