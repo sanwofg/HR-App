@@ -4,6 +4,8 @@ import note from './assets/note-pad.png'
 import { Link } from 'react-router-dom'
 import book from './assets/book.png'
 import users from './assets/users.png' 
+import profileEdit from './assets/profile-edit.png' 
+import Samuel from './assets/samuel.png' 
 import code from './assets/web-coding.png'
 import javsscript from './assets/javascript.png'
 import python from './assets/python.png'
@@ -11,11 +13,17 @@ import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js';
 import { Bar } from "react-chartjs-2";
 import GaugeChart from 'react-gauge-chart'
+import Calendar from 'react-calendar'
+import { useState } from 'react'
+import 'react-calendar/dist/Calendar.css';
 
 
 const Dashboard = ({openNav, close}) => {
-
-
+  
+  const [activatePlan, setActivatePlan] = useState(true);
+  const [checkAll, setCheckAll] = useState(false);
+  const [checkSingle, setCheckSingle] = useState({});
+ 
   const labels = ["Jan", "Feb", "Mar", "Apr", "May"];
 
   const data = {
@@ -54,8 +62,22 @@ const newTime = ()=>{
   }
 }
 
+
+const handleCheckAll = () => {
+  setCheckAll(!checkAll);
+};
+
+const handleCheckSingle = (id) => {
+  setCheckSingle(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+  }));
+  if (checkAll) {
+      setCheckAll(false);
+  }
+};
   return (
-    <div className='flex px-4 bg-white h-auto max-sm:flex-col'>
+    <div className='flex px-4 bg-white h-auto lg:gap-64 max-sm:flex-col'>
       <div className='flex flex-col w-[70%] max-sm:w-full  align-middle items-center '>
 
         <div className='flex w-full  h-auto justify-between align-middle items-center'>
@@ -265,6 +287,80 @@ const newTime = ()=>{
             </div>
         </div>
 
+      </div>
+
+      <div className='flex flex-col gap-7 w-full'>
+        <div className='flex flex-col gap-6'>
+
+          <div className='flex justify-between'> 
+            <p className='text-lg font-bold '>Profile</p>
+
+            <div className='p-2 border-2 rounded-lg border-[#E7EAE9]' >
+              <img src={profileEdit} alt='edit-icon' width={20} height={20}/>
+            </div>
+          </div>
+
+          <div className='items-center flex flex-col  gap-4 justify-center'>
+              <img src={Samuel}  width={180} height={180} className='rounded-full '/>
+              <p className='text-xl font-bold'>Samuel Chigoziri Anuna</p>
+              <p className='text-md '>Software Developer</p>
+          </div>
+
+        </div>
+
+        {/* calendar */}
+
+        <div className='flex justify-center items-center mt-5'>
+            <Calendar />
+        </div>
+        {/* todo */}
+        <div className='flex flex-col gap-5'>
+          <p className='text-xl font-bold'>To Do List</p>
+          <div className='flex flex-col'>
+
+            <div className='flex flex-row gap-2 mb-5 items-start'>
+              <input type='checkbox' onChange={handleCheckAll} checked={checkAll} className=' accent-primary'/> 
+              <div className='flex flex-col -mt-1 items-start'>
+                <p className='text-sm font-semibold p-0 m-0'>Create forms for HR App</p>
+                <p className='text sm border-[#E9E9E9] border-b-[2px] pb-2 mb-2'>Programing <span className=' ml-2 pl-3 border-l-[2px] border-[#E9E9E9] text-[#FE764B]'>8:00am</span></p>
+
+                <div className=' flex- flex-col gap-2'>
+                  <div>
+                    <input type='checkbox' onChange={() => handleCheckSingle(1)} checked={checkAll || checkSingle[1]} className=' accent-primary'/>
+                    <label className='ml-2'>Integrate API</label>
+                  </div>
+
+                  <div>
+                    <input  type='checkbox' onChange={() => handleCheckSingle(4)} checked={checkAll || checkSingle[3]} className=' accent-primary'/>
+                    <label className='ml-2'>Slicing Homescreen</label>
+                  </div>
+                  
+
+                </div>
+              </div>
+            </div>
+
+            <div className='flex flex-row gap-2 mb-5 items-start'>
+                <input type='checkbox' className=' accent-primary'/>
+
+                <div className='flex flex-col -mt-1 items-start'>
+                  <p className='text-sm font-semibold p-0 m-0'>Research Objective User</p>
+                  <p className='text sm  pb-2 mb-2'>Product Design<span className=' ml-2 pl-3 border-l-[2px] border-[#E9E9E9] text-[#FE764B]'>2:40Pm</span></p>
+                </div>
+            </div>
+
+            <div className='flex flex-row gap-2 mb-5 items-start'>
+                <input type='checkbox' className=' accent-primary'/>
+
+                <div className='flex flex-col -mt-1 items-start'>
+                  <p className='text-sm font-semibold p-0 m-0'>Report Analysis P2P Business</p>
+                  <p className='text sm  pb-2 mb-2'>Business<span className=' ml-2 pl-3 border-l-[2px] border-[#E9E9E9] text-[#FE764B]'>4:50Pm</span></p>
+                </div>
+            </div>
+            
+
+          </div>
+        </div>
       </div>
     </div>
   )
